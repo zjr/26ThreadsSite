@@ -119,19 +119,20 @@ module.exports = function (grunt) {
 			}
 		},
 		jade: {
-			html: {
-				src: [
-					'<% yeoman.app %>/jade/*.jade',
-					'<% yeoman.app %>/jade/**/*.jade',
-					'<% yeoman.app %>/jade/!_*.jade',
-					'<% yeoman.app %>/jade/**/!_*.jade'
-				],
-				dest: '<% yeoman.app %>',
+			compile: {
 				options: {
-					client: false,
-					basepath: '<% yeoman.app %>/jade',
+					data: {
+						debug: true
+					},
 					pretty: true
-				}
+				},
+				files: [{
+					expand: true,
+					cwd: '<%= yeoman.app %>/jade',
+					src: '*.jade',
+					dest: '<%= yeoman.app %>',
+					ext: '.html'
+				}]
 			}
 		},
 		coffee: {

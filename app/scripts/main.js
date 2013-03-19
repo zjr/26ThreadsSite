@@ -1,19 +1,25 @@
 require.config({
-    paths: {
-        jquery: '../components/jquery/jquery',
-        bootstrap: 'vendor/bootstrap'
-    },
-    shim: {
-        bootstrap: {
-            deps: ['jquery'],
-            exports: 'jquery'
-        }
-    }
+	paths: {
+		bootstrap:  'vendor/bootstrap',
+		jquery:     '../components/jquery/jquery',
+		prefixFree: '../components/prefix-free/prefixfree',
+		threeJS:    '../components/threejs/src/Three',
+		backbone:   '../components/backbone-amd/backbone',
+		underscore: '../components/underscore/underscore',
+		json2:      '../components/json2/json2',
+		progImgSeq: 'vendor/progressiveImageSequence'
+	},
+	shim: {
+		bootstrap: {
+			deps: ['jquery'],
+			exports: 'jquery'
+		}
+	}
 });
 
-require(['app', 'jquery', 'bootstrap'], function (app, $) {
-    'use strict';
-    // use app here
-    console.log(app);
-    console.log('Running jQuery %s', $().jquery);
+require(['views/app', 'jquery', 'prefixFree'], function (AppView) {
+	'use strict';
+
+	new AppView();
+
 });
