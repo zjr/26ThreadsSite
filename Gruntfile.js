@@ -52,9 +52,9 @@ module.exports = function (grunt) {
 		},
 		connect: {
 			options: {
-				port: 9000,
+				port: 3272,
 				// change this to '0.0.0.0' to access the server from outside
-				hostname: 'localhost'
+				hostname: '0.0.0.0'
 			},
 			livereload: {
 				options: {
@@ -273,7 +273,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('server', function (target) {
 		if (target === 'dist') {
-			return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
+			return grunt.task.run(['build',/* 'open',*/ 'connect:dist:keepalive']);
 		}
 
 		grunt.task.run([
@@ -282,7 +282,7 @@ module.exports = function (grunt) {
 			'compass:server',
 			'livereload-start',
 			'connect:livereload',
-			'open',
+			// 'open',
 			'watch'
 		]);
 	});

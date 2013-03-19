@@ -1,16 +1,16 @@
 {
 	"name": "26threads",
-	"version": "0.0.0",
+	"version": "0.0.1",
 	"dependencies": {
-		"backbone-amd":   "~0.9.10",
-		"jquery":         "~1.9.1",
+		"backbone-amd":   "~0.9.x",
+		"jquery":         "~1.9.x",
 		"json2":          null,
-		"modernizr":      "~2.6.2",
+		"modernizr":      "~2.6.x",
 		"normalize.scss": null,
 		"prefix-free":    null,
-		"requirejs":      "~2.1.4",
+		"requirejs":      "~2.1.x",
 		"threejs":        null,
-		"underscore-amd": "~1.4.4"
+		"underscore-amd": "~1.4.x"
 	},
 	"devDependencies": {}
 }
