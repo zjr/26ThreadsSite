@@ -37,10 +37,7 @@ module.exports = function (grunt) {
 				tasks: ['compass']
 			},
 			jade: {
-				files: [
-					'<% yeoman.app %>/jade/*.jade',
-					'<% yeoman.app %>/jade/**/*.jade'
-				],
+				files: ['<%= yeoman.app %>/jade/{,*/}*.jade'],
 				tasks: 'jade'
 			},
 			livereload: {
