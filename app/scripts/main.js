@@ -5,7 +5,7 @@ require.config({
 		prefixFree: '../components/prefix-free/prefixfree',
 		threeJS:    '../components/threejs/src/Three',
 		backbone:   '../components/backbone-amd/backbone',
-		underscore: '../components/underscore/underscore',
+		underscore: '../components/underscore-amd/underscore',
 		json2:      '../components/json2/json2',
 		progImgSeq: 'vendor/progressiveImageSequence'
 	},
@@ -17,9 +17,18 @@ require.config({
 	}
 });
 
-require(['views/app', 'jquery', 'prefixFree'], function (AppView) {
-	'use strict';
+require([
+		'views/app',
+		// 'views/thread',
+		// 'collections/threads',
+		'jquery',
+		'prefixFree'], 
+	function (AppView, ThreadView, Threads) {
+		'use strict';
 
-	new AppView();
+		$(document).ready(function(){new AppView({ el:$('#video-container') });});
+
+		// var threads = new Threads();
+		// new ThreadView({ el:$('#threads'), collection: threads });
 
 });

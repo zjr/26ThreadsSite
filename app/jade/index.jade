@@ -1,15 +1,18 @@
 //- Loads app/jade/layouts/default
 include layouts/default
 	block extend content
-		-var height = 2500;
-		-var panels = 5;
+		-var height = 7200;
+		-var panels = 6;
 		div#main(style='height: #{height}px')
 			header.header v0.0.1 -- Initial Functionality Test.
-			.video-bg
-				video(autobuffer, poster='/images/video-bg-poster.png')
-					source(src='/videos/video-bg.mp4', type='video/mp4')
+			#video-container
+				video(
+					autobuffer,
+					style='width: 100%; height: 100%;')
+						source(src='/videos/video-bg.mp4', type='video/mp4')
 			-for(var i = 0; i < panels; i++)
+				- var pos = (i % 2 === 0) ? 'left' : 'right';
 				.thread-spot(
 					id='ts-#{i}',
-					style='top: #{(height / panels) * i}px; left: 150px')
-						##{i}
+					style='top: #{(height / panels) * i}px; #{pos}: 150px')
+							##{i}
