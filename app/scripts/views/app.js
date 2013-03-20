@@ -1,11 +1,15 @@
-define(['backbone'], function (Backbone) {
+define(['backbone', 'progImgSeq'], function (Backbone) {
 
 	var AppView = Backbone.View.extend({
 		initialize: function () {
 			// store elements; $el = #video-container
 			this.$doc  = $(document);
 			this.$win  = $(window);
-			this.video = this.$el.children('video')[0]
+			this.video = this.$el.children()[0]
+
+			//
+			this.currentSrc = null;
+			this.currentIndex = null;
 
 			// set up vars for dimension calculations
 			this.winWidth = null;
@@ -18,7 +22,7 @@ define(['backbone'], function (Backbone) {
 			this.vidImgHeight = 720;
 
 			// scroll position init
-			this.currentPosition = 0;
+			this.currentPosition = -1;
 
 			this.calculateDimensions();
 
@@ -58,12 +62,54 @@ define(['backbone'], function (Backbone) {
 				.css('top', top+'px');
 		},
 		handleScroll: function () {
-			this.currentPosition = this.$win.scrollTop() / this.scrollHeight;
-			this.render(this.currentPosition);
+			this.targetPosition = this.$win.scrollTop() / this.scrollHeight;
 		},
+		// consider moving this to ThreadView
 		render: function (position) {
-			if (this.video.duration) {
-				this.video.currentTime = position * this.video.duration;
+			var _el = $('.thread-spot');
+			var minY = -this.winHeight;
+			var maxY = this.winHeight;
+			var scrollHeight  = this.scrollHeight
+
+			$.each(_el, function (index, element) {
+				var $this = $(this);				
+				var elPosition = Number($this.attr('data-position'));
+				var elSpeed    = Number($this.attr('data-speed'));
+				var elY = maxY/2 + elSpeed * (elPosition - position) * scrollHeight
+
+				if (elY < minY || elY > maxY) {
+					$this.css({
+						'visibility': 'none',
+						top: '-1000px',
+						'webkitTransform': 'none'
+					});
+				} else {
+					$this.css({
+						'visibility': 'visible',
+						top: elY,
+						position: 'fixed'
+					});
+				}
+			});
+
+			this.renderVideo(position);
+		},
+		renderVideo: function (position) {
+			var index = Math.round(this.currentPosition * (this.imgSeqLoader.length - 1));
+
+			var img = this.imgSeqLoader.getNearest(index);
+			var $img = $(img)
+			var src;
+
+			var nearestIndex = this.imgSeqLoader.nearestIndex;
+			if (nearestIndex < 0) nearestIndex = 0;
+
+			if(!!img) {
+				src = img.src;
+				if (src != this.currentSrc) {
+					this.video.src = src;
+					this.currentSrc = src;
+				}
 			}
 		}
 	});

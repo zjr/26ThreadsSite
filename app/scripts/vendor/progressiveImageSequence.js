@@ -110,7 +110,7 @@ function ProgressiveImageSequence( imgpath , count ,  options ) {
 	};
 	
 	this.loadIndex = function(index, complete) {
-		if ( index < 0 ||Â index >= myself.length ) return false;
+		if ( index < 0 || index >= myself.length ) return false;
 
 		if ( index != Math.floor(index) ) {
 			return false;
@@ -166,7 +166,7 @@ function ProgressiveImageSequence( imgpath , count ,  options ) {
 	};
 
 	function loadNextImage() {
-		setTimeout( function(){ myself.loadNext(); } , $.browser.mozilla || $.browser.msie ? 50 : 5 );
+		setTimeout( function(){ myself.loadNext(); } , $('html').hasClass('-moz-') || $('html').hasClass('-ms-') ? 50 : 5 );
 	}
 
 	function finished() {
