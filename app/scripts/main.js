@@ -30,7 +30,7 @@ require([
 			var appView = new AppView({ el:$('#video-container') });			
 
 			// All this needs refactoring... jeez.
-			appView.imgSeqLoader = new ProgressiveImageSequence('/videos/img-seq/vid-{index}.png', 685, {
+			appView.imgSeqLoader = new ProgressiveImageSequence('/videos/img-seq/JPG/vid-{index}.jpg', 685, {
 				indexSize: 4,
 				initialStep: 16,
 				onProgress: this.handleLoadProgress,
