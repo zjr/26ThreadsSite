@@ -21,7 +21,8 @@ require([
 		'views/app',
 		'progImgSeq',
 		'jquery',
-		'prefixFree'], 
+		'prefixFree'
+	],
 	function (AppView) {
 		'use strict';
 
@@ -30,7 +31,7 @@ require([
 			var appView = new AppView({ el:$('#video-container') });			
 
 			// All this needs refactoring... jeez.
-			appView.imgSeqLoader = new ProgressiveImageSequence('/videos/img-seq/JPG/vid-{index}.jpg', 685, {
+			appView.imgSeqLoader = new ProgressiveImageSequence('/images/video-bg/vid-{index}.jpg', 685, {
 				indexSize: 4,
 				initialStep: 16,
 				onProgress: this.handleLoadProgress,

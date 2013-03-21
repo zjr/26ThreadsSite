@@ -302,7 +302,7 @@ module.exports = function (grunt) {
 		'compass:dist',
 		'useminPrepare',
 		'requirejs',
-		'imagemin',
+		/*'imagemin',*/
 		'htmlmin',
 		'concat',
 		'cssmin',
