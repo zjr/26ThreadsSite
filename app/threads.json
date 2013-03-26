@@ -1,0 +1,161 @@
+[
+	{
+		"id": 1,
+		"title": "sense of shape",
+		"subTitle": "monitor",
+		"video": {
+			"url": "http://player.vimeo.com/video/53644108"
+		}
+	},
+	{
+		"id": 2,
+		"title": "awareness of surroundings"
+	},
+	{
+		"id": 3,
+		"title": "acquisition of companionship",
+		"subTitle": "witness",
+		"video": {
+			"url": "http://player.vimeo.com/video/53644111"
+		}
+	},
+	{
+		"id": 4,
+		"title": "toxin expulsion"
+	},
+	{
+		"id": 5,
+		"title": "processing of physical information"
+	},
+	{
+		"id": 6,
+		"title": "acquisition of peaceful comforts",
+		"subTitle": "become"
+	},
+	{
+		"id": 7,
+		"title": "sense of ownership"
+	},
+	{
+		"id": 8,
+		"title": "maintenance of physical self"
+	},
+	{
+		"id": 9,
+		"title" : "sense of efficiency",
+		"subTitle": "sensate",
+		"video": {
+			"url": "http://player.vimeo.com/video/53644157"
+		}
+	},
+	{
+		"id": 10,
+		"title": "acquisition of emotional excitements"
+	},
+	{
+		"id": 11,
+		"title": "sense of humor",
+		"subTitle": "extract",
+		"video": {
+			"url": "http://player.vimeo.com/video/53644159"
+		}
+	},
+	{
+		"id": 12,
+		"title": "sense of time"
+	},
+	{
+		"id": 13,
+		"title": "sense of domination",
+		"subTitle": "observe",
+		"video": {
+			"url": "http://player.vimeo.com/video/53644183"
+		}
+	},
+	{
+		"id": 14,
+		"title": "sense of sociology",
+		"subTitle": "consider",
+		"video": {
+			"url": "http://player.vimeo.com/hubnut/channel/428252?color=44bbff&background=000&slideshow=0&video_title=1&video_byline=1"
+		}
+	},
+	{
+		"id": 15,
+		"title": "sense of pain"
+	},
+	{
+		"id": 16,
+		"title": "sense of mathematics"
+	},
+	{
+		"id": 17,
+		"title": "intentional healing"
+	},
+	{
+		"id": 18,
+		"title": "sense of humility",
+		"subTitle": "revere",
+		"video": {
+			"url": "http://player.vimeo.com/video/53644202"
+		}
+	},
+	{
+		"id": 19,
+		"title": "expression of feeling"
+	},
+	{
+		"id": 20,
+		"title": "expression of identity",
+		"subTitle": "experience",
+		"video": {
+			"url": "http://player.vimeo.com/video/52038242"
+		}
+	},
+	{
+		"id": 21,
+		"title": "sense of fact vs fiction"
+	},
+	{
+		"id": 22,
+		"title": "awareness of creativity",
+		"subTitle": "regard",
+		"video": {
+			"url": "http://player.vimeo.com/video/53644207"
+		}
+	},
+	{
+		"id": 23,
+		"title": "acquisition of progress",
+		"subTitle": "comply",
+		"video": {
+			"url": "http://player.vimeo.com/video/53644208"
+		}
+	},
+	{
+		"id": 24,
+		"title": "adjustment of psychic mentality"
+	},
+	{
+		"id": 25,
+		"title": "extrasensory perception",
+		"subTitle": "study",
+		"video": {
+			"url": "http://player.vimeo.com/video/53644225"
+		}
+	},
+	{
+		"id": 26,
+		"title": "sense of one's own narrative",
+		"fiction": {
+			"video": {
+				"url": "http://player.vimeo.com/video/58867209"
+			}
+		},
+		"non_fiction": {
+			"video": {
+				"url": "http://player.vimeo.com/video/53644222"
+			}
+		}
+	}
+]

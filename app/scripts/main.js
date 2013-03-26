@@ -18,12 +18,13 @@ require.config({
 });
 
 require([
-		'views/app',
-		'progImgSeq',
 		'jquery',
+		'views/app',
+		'collections/threads',
+		'progImgSeq',
 		'prefixFree'
 	],
-	function (AppView) {
+	function ($, AppView, Threads) {
 		'use strict';
 
 		$(document).ready(function(){
@@ -73,6 +74,12 @@ require([
 			}
 
 			animLoop();
+
+
+			window.threads = new Threads();
+			window.threads.fetch();
+
+
 		});
 
 		// var threads = new Threads();

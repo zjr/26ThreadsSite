@@ -1,8 +1,16 @@
 define(['backbone'], function (Backbone) {
-	'use strict';
 
 	var Thread = Backbone.Model.extend({
-		url: '/thread'
+		defaults: {
+			"title": null,
+			"subTitle": null,
+			"description": null,
+			"video": {
+				"url": null,
+				"lock": true,
+				"release": null
+			}
+		}
 	});
 
 	return Thread;
