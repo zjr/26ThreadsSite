@@ -75,10 +75,8 @@ require([
 
 			animLoop();
 
-
-			window.threads = new Threads();
-			window.threads.fetch();
-
+			var threads = new Threads();
+			threads.fetch({async:false});
 
 		});
 
