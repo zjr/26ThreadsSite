@@ -14,6 +14,9 @@ require.config({
 		bootstrap: {
 			deps: ['jquery'],
 			exports: 'jquery'
+		},
+		handlebars: {
+			exports: 'Handlebars'
 		}
 	}
 });
