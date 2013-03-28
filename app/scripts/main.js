@@ -21,10 +21,11 @@ require([
 		'jquery',
 		'views/app',
 		'collections/threads',
+		'views/thread',
 		'progImgSeq',
 		'prefixFree'
 	],
-	function ($, AppView, Threads) {
+	function ($, AppView, Threads, ThreadView) {
 		'use strict';
 
 		String.prototype.toTitle = function(glue) {
@@ -84,7 +85,12 @@ require([
 			animLoop();
 
 			var threads = new Threads();
-			threads.fetch({async:false});
+			threads.fetch({ async:false });
+
+			var threadView = new ThreadView({
+				el: $('#thread'),
+				collection: threads
+			});
 
 		});
 
