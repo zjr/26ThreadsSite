@@ -1,0 +1,14 @@
+{{!
+-for(var i = 1; i <= panels; i++)
+	- var pos = (i % 2 === 0) ? 'left' : 'right';
+	// var rand = Math.random();
+	// var speed = (i % 2 === 0) ? (rand+1).toFixed(1) : (rand+2).toFixed(1);
+	- var speed = 1;
+	- var position = ((1 / panels) * i).toFixed(2);
+	.thread-spot(
+		id='ts-#{i}',
+		data-speed=speed
+		data-position=position,
+		style='#{pos}: 150px')
+			#{i}
+}}

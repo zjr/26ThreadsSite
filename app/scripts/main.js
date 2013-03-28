@@ -7,6 +7,7 @@ require.config({
 		backbone:   '../components/backbone-amd/backbone',
 		underscore: '../components/underscore-amd/underscore',
 		json2:      '../components/json2/json2',
+		handlebars: '../components/handlebars.js/dist/handlebars',
 		progImgSeq: 'vendor/progressiveImageSequence'
 	},
 	shim: {
