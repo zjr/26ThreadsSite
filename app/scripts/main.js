@@ -27,6 +27,14 @@ require([
 	function ($, AppView, Threads) {
 		'use strict';
 
+		String.prototype.toTitle = function(glue) {
+			glue = (glue) ? glue : ['of', 'for', 'and'];
+			return this.replace(/(\w)(\w*)/g, function(_, i, r){
+				var j = i.toUpperCase() + (r != null ? r : "");
+				return (glue.indexOf(j.toLowerCase())<0)?j:j.toLowerCase();
+			});
+		};
+
 		$(document).ready(function(){
 
 			var appView = new AppView({ el:$('#video-container') });			
