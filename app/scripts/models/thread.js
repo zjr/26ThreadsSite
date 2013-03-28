@@ -7,7 +7,7 @@ define(['backbone'], function (Backbone) {
 			"description": null,
 			"video": {
 				"url": null,
-				"lock": true,
+				"locked": true,
 				"release": null
 			}
 		}

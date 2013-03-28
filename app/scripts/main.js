@@ -39,7 +39,7 @@ require([
 
 		$(document).ready(function(){
 
-			var appView = new AppView({ el:$('#video-container') });			
+			var appView = new AppView({ el: $('#video-container') });
 
 			// All this needs refactoring... jeez.
 			appView.imgSeqLoader = new ProgressiveImageSequence('/images/video-bg/vid-{index}.jpg', 685, {
@@ -61,24 +61,24 @@ require([
 					appView.imgSeqLoader.load();
 				}
 			});
-			
+
 			// Definitely refactor!
 			window.reqAnimFrame = (function () {
 				return window.requstAnimationFrame       ||
-					     window.webkitRequstAnimationFrame ||
-					     window.mozRequstAnimationFrame    ||
-					     window.msRequstAnimationFrame     ||
-					     window.oRequstAnimationFrame      ||
+							 window.webkitRequstAnimationFrame ||
+							 window.mozRequstAnimationFrame    ||
+							 window.msRequstAnimationFrame     ||
+							 window.oRequstAnimationFrame      ||
 				function (callback, element) {
 					window.setTimeout(callback, 1000 / 60);
 				};
 			})();
-			
+
 			function animLoop () {
-				var _this = appView;
-				if (Math.floor(_this.currentPosition*5000) != Math.floor(_this.targetPosition*5000)) {
-					_this.currentPosition += (_this.targetPosition - _this.currentPosition) / 5;
-					_this.render(_this.currentPosition);
+				var that = appView;
+				if (Math.floor(that.currentPosition*5000) != Math.floor(that.targetPosition*5000)) {
+					that.currentPosition += (that.targetPosition - that.currentPosition) / 5;
+					that.render(that.currentPosition);
 				}
 				reqAnimFrame(animLoop);
 			}
