@@ -1,4 +1,4 @@
-define(['backbone', 'handlebars', 'text!/templates/thread.html'], function (Backbone, Handlebars, threadTemplate) {
+define(['backbone', 'handlebars', 'text!templates/thread.html'], function (Backbone, Handlebars, threadTemplate) {
 
 	var ThreadView = Backbone.View.extend({
 
