@@ -189,7 +189,7 @@ module.exports = function (grunt) {
 					// http://requirejs.org/docs/errors.html#sourcemapcomments
 					preserveLicenseComments: false,
 					useStrict: true,
-					wrap: true,
+					wrap: true
 					//uglify2: {} // https://github.com/mishoo/UglifyJS2
 				}
 			}
@@ -259,6 +259,7 @@ module.exports = function (grunt) {
 						'*.{ico,txt}',
 						'.htaccess',
 						'images/video-bg/**',
+						'data/*.json'
 					]
 				}]
 			}
