@@ -88,13 +88,9 @@ require([
 			threads.fetch({ async:false });
 
 			var threadView = new ThreadView({
-				el: $('#thread'),
+				el: $('#thread-container'),
 				collection: threads
 			});
 
 		});
-
-		// var threads = new Threads();
-		// new ThreadView({ el:$('#threads'), collection: threads });
-
 });
