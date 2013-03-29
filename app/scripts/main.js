@@ -20,12 +20,13 @@ require.config({
 require([
 		'jquery',
 		'views/app',
+		'router',
 		'collections/threads',
 		'views/thread',
 		'progImgSeq',
 		'prefixFree'
 	],
-	function ($, AppView, Threads, ThreadView) {
+	function ($, AppView, Router, Threads, ThreadView) {
 		'use strict';
 
 		String.prototype.toTitle = function(glue) {
@@ -36,7 +37,11 @@ require([
 			});
 		};
 
+		window.App = {};
+
 		$(document).ready(function(){
+			
+			App.router = new Router();
 
 			var appView = new AppView({ el: $('#video-container') });
 
@@ -84,13 +89,15 @@ require([
 
 			animLoop();
 
-			var threads = new Threads();
-			threads.fetch({ async:false });
+			App.threadCol = new Threads();
+			App.threadCol.fetch({ async:false });
 
-			var threadView = new ThreadView({
+			App.threadView = new ThreadView({
 				el: $('#thread-container'),
-				collection: threads
+				collection: App.threadCol
 			});
+
+			Backbone.history.start();
 
 		});
 });

@@ -3,14 +3,14 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 	var ThreadView = Backbone.View.extend({
 
 		initialize: function() {
-			// this.listenTo(this.model, "change", this.render)
-
+			var that = this;
+			App.router.on("route:showThread", function (id) {
+				that.model = that.collection.get(id);
+				that.render();
+			});
 			template = _.template(threadTemplate);
-
-			this.model = this.collection.get(1)
-
-			this.render();
 		},
+
 
 		render: function () {
 			this.$el.html(template(this.model.attributes))
