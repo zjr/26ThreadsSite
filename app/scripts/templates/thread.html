@@ -12,4 +12,16 @@
 		style='#{pos}: 150px')
 			#{i}
 -->
-<p><%= title.toTitle() %></p>
+<div class="thread">
+	<p><%= id %></p>
+	<% // Thread Type Switches %>
+	<% if (video.url) { %>
+		<% if (video.locked) { %>
+			<% // Timer Type %>
+		<% } else { %>
+			<% // Video Type %>	
+		<% } %>
+	<% } else { %>
+		<% // Regular Type %>
+	<% } %>
+</div>

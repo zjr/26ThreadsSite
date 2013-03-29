@@ -66,7 +66,7 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 		},
 		// consider moving this to ThreadView
 		render: function (position) {
-			var _el = $('.thread-spot');
+			var _el = $('.thread');
 			var minY = -this.winHeight;
 			var maxY = this.winHeight;
 			var scrollHeight  = this.scrollHeight
