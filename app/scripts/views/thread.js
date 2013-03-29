@@ -1,11 +1,11 @@
-define(['backbone', 'handlebars', 'text!templates/thread.html'], function (Backbone, Handlebars, threadTemplate) {
+define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTemplate) {
 
 	var ThreadView = Backbone.View.extend({
 
 		initialize: function() {
 			// this.listenTo(this.model, "change", this.render)
 
-			template = Handlebars.compile(threadTemplate);
+			template = _.template(threadTemplate);
 
 			this.model = this.collection.get(1)
 
