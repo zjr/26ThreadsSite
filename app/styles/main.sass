@@ -1,4 +1,6 @@
-@import compass/css3
+@import compass/reset
+@import compass/css3/box-sizing
+@import compass/css3/border-radius
 
 html, body
 	width: 100%
@@ -30,6 +32,6 @@ body
 	+box-sizing(border-box)
 	margin-top: -200px
 	margin-left: -200px
-	border-radius: 300px
+	+border-radius(300px)
 	background: rgba(0,0,0,0.8)
 	text-align: center
