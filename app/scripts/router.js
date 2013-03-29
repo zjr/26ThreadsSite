@@ -9,7 +9,7 @@ define(['backbone'], function (Backbone) {
 		},
 
 		showThread: function (id) {
-			console.log("Success; Thread: " + id);
+			//
 		}
 
 	});
