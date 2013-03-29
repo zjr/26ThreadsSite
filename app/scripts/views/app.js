@@ -80,7 +80,7 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 				if (elY < minY || elY > maxY) {
 					$this.css({
 						'visibility': 'none',
-						top: '-1000px',
+						// top: '-1000px',
 						'webkitTransform': 'none'
 					});
 				} else {
@@ -88,7 +88,7 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 						'visibility': 'visible',
 						// should simplify... this is unnecessary
 						// should just have container element absolutely positioned to viewport.
-						top: elY,
+						// top: elY,
 						position: 'fixed'
 					});
 				}
