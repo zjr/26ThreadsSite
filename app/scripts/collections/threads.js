@@ -3,7 +3,7 @@ define(['backbone', '../models/thread'], function (Backbone, Thread) {
 
 	var Threads = Backbone.Collection.extend({
 		model: Thread,
-		url: '/threads.json'
+		url: 'data/threads.json'
 	});
 
 	return Threads;
