@@ -6,15 +6,20 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 			var that = this;
 			App.router.on("route:showThread", function (id) {
 				that.model = that.collection.get(id);
-				that.render();
+				that.render().scroll();
 			});
-			template = _.template(threadTemplate);
+			this.template = _.template(threadTemplate);
 		},
 
-
 		render: function () {
-			this.$el.html(template(this.model.attributes))
+			this.$el.html(this.template(this.model.attributes))
 			return this;
+		},
+
+		scroll: function () {
+			var position = this.$('.thread').attr('data-position');
+			var offset   = (document.height * position);
+			window.scrollTo(0, offset);
 		}
 
 	});

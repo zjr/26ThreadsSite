@@ -24,7 +24,7 @@
 			<% // Video Type %>	
 			<a
 				class="button-play"
-				href="thread/<%= id %>/video"
+				href="#thread/<%= id %>/video"
 				title="26 Threads Video"
 				>Play</a>
 		<% } %>
@@ -32,10 +32,10 @@
 		<% // regular type %>
 		<a
 			class="button-next"
-			href="thread/<%= id + 1 %>"
+			href="#thread/<%= id + 1 %>"
 			>Next</a>
 	<% } %>
 	<% if (subTitle) { %><h3><%= subTitle.toTitle() %></h3><% } %>
 	<p class="description"><%= description %></p>
 	<a href="#thread/26">26</a>
-</div>
+</section>

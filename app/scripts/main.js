@@ -23,10 +23,11 @@ require([
 		'router',
 		'collections/threads',
 		'views/thread',
+		'views/nodes',
 		'progImgSeq',
 		'prefixFree'
 	],
-	function ($, AppView, Router, Threads, ThreadView) {
+	function ($, AppView, Router, Threads, ThreadView, NodesView) {
 		'use strict';
 
 		String.prototype.toTitle = function(glue) {
@@ -96,6 +97,11 @@ require([
 				el: $('#thread-container'),
 				collection: App.threadCol
 			});
+
+			App.nodeView = new NodesView({
+				el: $('#node-list'),
+				collection: App.threadCol
+			})
 
 			Backbone.history.start();
 
