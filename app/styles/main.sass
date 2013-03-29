@@ -20,10 +20,18 @@ body
 	top: 0
 	left: 0
 	position: fixed
-	
+
 .thread
+	top: 50%
+	left: 50%
 	z-index: 1
-	opacity: 0.8
-	margin-top: -1ex
-	font-size: 200px
 	position: absolute
+	width: 400px
+	height: 400px
+	padding: 60px
+	+box-sizing(border-box)
+	margin-top: -200px
+	margin-left: -200px
+	border-radius: 300px
+	background: rgba(0,0,0,0.8)
+	text-align: center

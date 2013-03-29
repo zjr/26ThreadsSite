@@ -86,6 +86,8 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 				} else {
 					$this.css({
 						'visibility': 'visible',
+						// should simplify... this is unnecessary
+						// should just have container element absolutely positioned to viewport.
 						top: elY,
 						position: 'fixed'
 					});

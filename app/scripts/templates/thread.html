@@ -1,27 +1,40 @@
-<!--
--for(var i = 1; i <= panels; i++)
-	- var pos = (i % 2 === 0) ? 'left' : 'right';
-	// var rand = Math.random();
-	// var speed = (i % 2 === 0) ? (rand+1).toFixed(1) : (rand+2).toFixed(1);
-	- var speed = 1;
-	- var position = ((1 / panels) * i).toFixed(2);
-	.thread-spot(
-		id='ts-#{i}',
-		data-speed=speed
-		data-position=position,
-		style='#{pos}: 150px')
-			#{i}
--->
-<div class="thread" data-speed="1" data-position="<%= (26+1)-id %>">
-	<p><%= id %></p>
-	<% // Thread Type Switches %>
+<%
+	// move out of TEMPLATE!!!
+	var threadCount  = 26;
+	var portion      = 1 / threadCount;
+	var threadInvert = 26 + 1 - id
+	var threadPosition = portion * threadInvert 
+%>
+<div 
+	class="thread"
+	data-speed="1"
+	data-position="<%= threadPosition %>">
+	<p class="threadNumber"><%= id %></p>
+	<h2><%= title.toTitle() %></h2>
+	<% // thread type switches %>
 	<% if (video.url) { %>
 		<% if (video.locked) { %>
-			<% // Timer Type %>
+			<% // timer type %>
+			<div class="button-hourglass"></div>
+			<p class="timer">
+				<% // release datetime  %>
+				TIMERS!!!!
+			</p>
 		<% } else { %>
 			<% // Video Type %>	
+			<a
+				class="button-play"
+				href="thread/<%= id %>/video"
+				title="26 Threads Video"
+				>Play</a>
 		<% } %>
 	<% } else { %>
-		<% // Regular Type %>
+		<% // regular type %>
+		<a
+			class="button-next"
+			href="thread/<%= id + 1 %>"
+			>Next</a>
 	<% } %>
+	<% if (subTitle) { %><h3><%= subTitle.toTitle() %></h3><% } %>
+	<p class="description"><%= description %></p>
 </div>
