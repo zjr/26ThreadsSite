@@ -12,7 +12,7 @@
 	<p class="threadNumber"><%= id %></p>
 	<h2><%= title.toTitle() %></h2>
 	<% // thread type switches %>
-	<% if (video.url) { %>
+	<% if (video.url || id === 26) { %>
 		<% if (video.locked) { %>
 			<% // timer type %>
 			<div class="button-hourglass"></div>
@@ -21,7 +21,7 @@
 				TIMERS!!!!
 			</p>
 		<% } else { %>
-			<% // Video Type %>	
+			<% // video type %>	
 			<a
 				class="button-play"
 				href="#thread/<%= id %>/video"

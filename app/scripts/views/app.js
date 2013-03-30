@@ -22,7 +22,10 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 			this.vidImgHeight = 720;
 
 			// scroll position init
-			this.currentPosition = -1;
+			this.currentPosition = 1.5;
+
+			// current thread init
+			this.currentId = null;
 
 			this.calculateDimensions();
 
@@ -63,6 +66,12 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 		},
 		handleScroll: function () {
 			this.targetPosition = this.$win.scrollTop() / this.scrollHeight;
+			var position = ((this.targetPosition) * 26).toInt();
+			var position = position === 0 ? 1 : position;
+			var id = 27 - position;
+			if (id !== this.currentId) {
+				App.router.navigate('#thread/' + id, {trigger: true});
+			}
 		},
 		// consider moving this to ThreadView
 		render: function (position) {

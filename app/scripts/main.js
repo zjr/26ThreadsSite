@@ -30,24 +30,35 @@ require([
 	function ($, AppView, Router, Threads, ThreadView, NodesView) {
 		'use strict';
 
-		String.prototype.toTitle = function(glue) {
+		Function.prototype.method = function(name, func) {
+			this.prototype[name] = func;
+			return this;
+		};
+
+		String.method('toTitle', function(glue) {
 			glue = (glue) ? glue : ['of', 'for', 'and'];
 			return this.replace(/(\w)(\w*)/g, function(_, i, r){
 				var j = i.toUpperCase() + (r != null ? r : "");
 				return (glue.indexOf(j.toLowerCase())<0)?j:j.toLowerCase();
 			});
-		};
+		});
+
+		Number.method('toInt', function () {
+			return Math.round(Number(this));
+		})
 
 		window.App = {};
 
 		$(document).ready(function(){
+
+			window.scrollTo(0, $(document).height()-$(window).height());
 			
 			App.router = new Router();
 
-			var appView = new AppView({ el: $('#video-container') });
+			App.view = new AppView({ el: $('#video-container') });
 
 			// All this needs refactoring... jeez.
-			appView.imgSeqLoader = new ProgressiveImageSequence('/images/video-bg/vid-{index}.jpg', 685, {
+			App.view.imgSeqLoader = new ProgressiveImageSequence('/images/video-bg/vid-{index}.jpg', 685, {
 				indexSize: 4,
 				initialStep: 16,
 				onProgress: this.handleLoadProgress,
@@ -55,15 +66,15 @@ require([
 				stopAt: 1
 			});
 
-			appView.loadCounterForIE = 0;
-			appView.imgSeqLoader.loadPosition(appView.currentPosition,function(){
-				appView.loadCounterForIE++;
-				if (appView.loadCounterForIE == 1) {
-					appView.renderVideo(appView.currentPosition);
-					appView.imgSeqLoader.load();
-					appView.imgSeqLoader.load();
-					appView.imgSeqLoader.load();
-					appView.imgSeqLoader.load();
+			App.view.loadCounterForIE = 0;
+			App.view.imgSeqLoader.loadPosition(App.view.currentPosition,function(){
+				App.view.loadCounterForIE++;
+				if (App.view.loadCounterForIE == 1) {
+					App.view.renderVideo(App.view.currentPosition);
+					App.view.imgSeqLoader.load();
+					App.view.imgSeqLoader.load();
+					App.view.imgSeqLoader.load();
+					App.view.imgSeqLoader.load();
 				}
 			});
 
@@ -80,7 +91,7 @@ require([
 			})();
 
 			function animLoop () {
-				var that = appView;
+				var that = App.view;
 				if (Math.floor(that.currentPosition*5000) != Math.floor(that.targetPosition*5000)) {
 					that.currentPosition += (that.targetPosition - that.currentPosition) / 5;
 					that.render(that.currentPosition);
