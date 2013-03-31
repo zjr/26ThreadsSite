@@ -24,7 +24,7 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 		},
 
 		update: function (id) {
-			App.view.currentId = id;
+			App.view.currentId = Number(id);
 		}
 
 	});

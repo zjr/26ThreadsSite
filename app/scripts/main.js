@@ -116,5 +116,24 @@ require([
 
 			Backbone.history.start();
 
+			$(document).keydown(function (e) {
+				switch(e.which) {
+					// Up key
+					case 38:
+						if (App.view.currentId !== 26) {
+							App.router.navigate('#thread/'+(App.view.currentId + 1), {trigger: true});
+						}						
+						break;
+					// Down key
+					case 40:
+						if (App.view.currentId !== 1) {
+							App.router.navigate('#thread/'+(App.view.currentId - 1), {trigger: true});
+						} else {
+							// Glow!!!
+						}
+						break;
+				}
+			});
+
 		});
 });
