@@ -24,10 +24,11 @@ require([
 		'collections/threads',
 		'views/thread',
 		'views/nodes',
+		'views/audio',
 		'progImgSeq',
 		'prefixFree'
 	],
-	function ($, AppView, Router, Threads, ThreadView, NodesView) {
+	function ($, AppView, Router, Threads, ThreadView, NodesView, AudioView) {
 		'use strict';
 
 		Function.prototype.method = function(name, func) {
@@ -134,6 +135,8 @@ require([
 						break;
 				}
 			});
+
+			App.audioView = new AudioView({ el: $('#audio-container') });
 
 		});
 });
