@@ -6,6 +6,7 @@
 @import compass/css3/text-shadow
 @import compass/css3/transition
 @import compass/typography/links/unstyled-link
+@import compass/utilities/sprites
 
 /*! Made by RipeType: http://www.ripetype.com.au/ */
 @import inc/ripe/plain
@@ -26,6 +27,8 @@ $default-box-shadow-h-offset: 1px
 $default-box-shadow-v-offset: 1px
 $default-box-shadow-blur: 2px
 
+@import "button/*.png"
+@include all-button-sprites
 
 html, body
 	width: 100%
