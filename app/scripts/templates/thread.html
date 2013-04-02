@@ -9,8 +9,8 @@
 	class="thread"
 	data-speed="1"
 	data-position="<%= threadPosition %>">
-	<p class="threadNumber"><%= id %></p>
-	<h2><%= title.toTitle() %></h2>
+	<p class="thread-number"><%= id %></p>
+	<h2 class="thread-title"><%= title.toTitle() %></h2>
 	<% // thread type switches %>
 	<% if (video.url || id === 26) { %>
 		<% if (video.locked) { %>
@@ -35,6 +35,6 @@
 			href="#thread/<%= id + 1 %>"
 			>Next</a>
 	<% } %>
-	<% if (subTitle) { %><h3><%= subTitle.toTitle() %></h3><% } %>
+	<% if (subTitle) { %><h3 class="thread-subtitle"><%= subTitle.toTitle() %></h3><% } %>
 	<!-- <p class="description"><%= description %></p> -->
 </section>

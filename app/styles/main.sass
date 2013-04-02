@@ -1,7 +1,9 @@
-//@import compass/reset
+@import compass/reset
 @import compass/css3/font-face
 @import compass/css3/box-sizing
 @import compass/css3/border-radius
+@import compass/css3/text-shadow
+@import compass/typography/links/unstyled-link
 
 /*! Made by RipeType: http://www.ripetype.com.au/ */
 @import inc/ripe/plain
@@ -9,6 +11,12 @@
 
 /*! Rothman by David Rakowski: http://www.fontsquirrel.com/fonts/Rothman */
 @import inc/rothman/plain
+
+$default-text-shadow-color: rgba(black, 0.5)
+$default-text-shadow-h-offset: 1px
+$default-text-shadow-v-offset: 1px
+$default-text-shadow-blur: 1px
+
 
 html, body
 	width: 100%
@@ -21,8 +29,21 @@ body
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif
 
 .header
-	z-index: 1
-	position: relative
+	top: 0
+	left: 0
+	z-index: 2
+	position: fixed
+	padding: 1em
+	h1
+		font:
+			family: "Rothman", "Helvetica Neue", Helvetica, Arial, sans-serif
+			weight: 400
+			size: 6em
+		text-transform: uppercase
+		letter-spacing: 0.033em
+		+single-text-shadow
+		line-height: 1.2em
+		margin: 0 0 -0.2em 0
 
 #video-container
 	top: 0
@@ -36,7 +57,7 @@ body
 	position: absolute
 	width: 400px
 	height: 400px
-	padding: 60px
+	padding: 40px
 	+box-sizing(border-box)
 	margin-top: -200px
 	margin-left: -200px
@@ -44,7 +65,50 @@ body
 	border: 5px solid rgba(white, 0.8)
 	background: rgba(black, 0.8)
 	text-align: center
+	font-family: "RipeBold", "Helvetica Neue", Helvetica, Arial, sans-serif
+	font-weight: bold
+	letter-spacing: 0.15em
+	+single-text-shadow(-1px, -1px, 0, false, black)
+
+.thread-number
+	font-size: 5em
+	line-height: 1em
+
+.thread-title
+	font-size: 1.3em
+	line-height: 1.6em
+
+.thread-subtitle
+	left: 0
+	bottom: 3em
+	position: absolute
+	width: 100%
 
 .node-container
+	top: 0
+	right: 0
 	z-index: 1
 	position: fixed
+	height: 100%
+	.nodes
+		height: 100%
+		padding: 1em 3em 1em 0
+		margin: 0
+		+box-sizing(border-box)
+		font-size: 0.6em
+		text-align: right
+		list-style: none
+		li
+			height: (100/26)*1%
+		.node-link
+			+unstyled-link
+			+single-text-shadow
+
+.keys
+	top: 8em
+	left: 0
+	z-index: 1
+	position: fixed
+	padding: 0 1em
+	margin: 0
+	list-style: none

@@ -37,7 +37,7 @@ require([
 		};
 
 		String.method('toTitle', function(glue) {
-			glue = (glue) ? glue : ['of', 'for', 'and'];
+			glue = (glue) ? glue : ['of', 'for', 'and', 'vs', 's'];
 			return this.replace(/(\w)(\w*)/g, function(_, i, r){
 				var j = i.toUpperCase() + (r != null ? r : "");
 				return (glue.indexOf(j.toLowerCase())<0)?j:j.toLowerCase();
