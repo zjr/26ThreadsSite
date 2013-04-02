@@ -3,7 +3,7 @@ define(['backbone', 'text!templates/nodes.html'], function (Backbone, nodesTemp)
 	var NodesView = Backbone.View.extend({
 
 		events: {
-			"click .thread-link": "goToThread"
+			"click .node-link": "goToThread"
 		},
 
 		initialize: function () {
