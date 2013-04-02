@@ -1,4 +1,5 @@
 // Generated on 2013-03-17 using generator-webapp 0.1.5
+// But edited quite a bit since then...
 'use strict';
 var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
 var mountFolder = function (connect, dir) {
@@ -259,8 +260,7 @@ module.exports = function (grunt) {
 					src: [
 						'*.{ico,txt}',
 						'.htaccess',
-						'images/video-bg/**',
-						'data/*.json'
+						'assets/**'
 					]
 				}]
 			}

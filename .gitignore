@@ -3,6 +3,5 @@ dist
 .tmp
 .sass-cache
 app/components
-app/videos
-app/images/comps
-app/images/video-bg
+app/assets/images/video-bg
+untracked_assets
