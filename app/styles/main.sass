@@ -3,6 +3,7 @@
 @import compass/css3/box-sizing
 @import compass/css3/box-shadow
 @import compass/css3/border-radius
+@import compass/css3/background-origin
 @import compass/css3/text-shadow
 @import compass/css3/transition
 @import compass/typography/links/unstyled-link
@@ -14,6 +15,10 @@
 
 /*! Rothman by David Rakowski: http://www.fontsquirrel.com/fonts/Rothman */
 @import inc/rothman/plain
+
+
+$button-play-spacing: 10px
+@import "button/*.png"
 
 $blueGlow: rgba(#17aae0, 1)
 
@@ -27,8 +32,6 @@ $default-box-shadow-h-offset: 1px
 $default-box-shadow-v-offset: 1px
 $default-box-shadow-blur: 2px
 
-@import "button/*.png"
-@include all-button-sprites
 
 html, body
 	width: 100%
@@ -102,7 +105,31 @@ body
 	position: relative
 	display: block
 	margin-top: 2em
+.button-play
+	@include button-sprite(play)
+	$playNormoWidth: button-sprite-width(play)
+	$playNormoHeight: button-sprite-height(play)
+	$playHoverWidth: button-sprite-width(play_hover)
+	$playHoverHeight: button-sprite-height(play_hover)
+	$playNormoPaddingV: ( $playHoverHeight - $playNormoHeight ) / 2
+	$playNormoPaddingH: ( $playHoverWidth - $playNormoWidth ) / 2
+	
+	color: transparent
+	font-size: 0
 
+	margin: 2rem auto 0
+
+	width: $playHoverWidth
+	height: $playHoverHeight
+	padding: $playNormoPaddingV $playNormoPaddingH
+	background-origin: content-box
+	+box-sizing(border-box)
+	+background-origin
+	
+	&:hover
+		padding: 0
+		height: $playHoverHeight
+		width: $playHoverWidth
 
 .node-container
 	top: 0
