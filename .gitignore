@@ -6,3 +6,4 @@ app/components
 app/assets/images/video-bg
 app/assets/fonts
 untracked_assets
+app/styles/*.css

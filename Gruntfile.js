@@ -34,7 +34,7 @@ module.exports = function (grunt) {
 				tasks: ['coffee:test']
 			},
 			compass: {
-				files: ['<%= yeoman.app %>/styles/*.{scss,sass}'],
+				files: ['<%= yeoman.app %>/styles/main.sass'],
 				tasks: ['compass']
 			},
 			jade: {
@@ -158,11 +158,11 @@ module.exports = function (grunt) {
 		compass: {
 			options: {
 				sassDir: '<%= yeoman.app %>/styles',
-				cssDir: '.tmp/styles',
-				imagesDir: '<%= yeoman.app %>/images',
+				cssDir: '<%= yeoman.app %>/styles',
+				imagesDir: '<%= yeoman.app %>/assets/images',
 				javascriptsDir: '<%= yeoman.app %>/scripts',
-				fontsDir: '<%= yeoman.app %>/styles/fonts',
-				importPath: 'app/components',
+				fontsDir: '<%= yeoman.app %>/assets/fonts',
+				importPath: '<%= yeoman.app %>/components',
 				relativeAssets: true
 			},
 			dist: {},
