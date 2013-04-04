@@ -24,14 +24,15 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 				{id: 3, title: "Physic"}
 			];
 			_.each(this.tracks, this.render, this);
+
 			// Add active class to auto played track.
 			this.$('.key-button[data-id="1"]').addClass('active');
 		},
 
 		soundsLoaded: function () {
-			// App.audioView.loop.start(1);
-			// App.audioView.currentTrack = 1;
-			// App.audioView.audioOn = true;
+			App.audioView.loop.start(1);
+			App.audioView.currentTrack = 1;
+			App.audioView.audioOn = true;
 		},
 
 		render: function (element) {
