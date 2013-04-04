@@ -2,6 +2,10 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 
 	var ThreadView = Backbone.View.extend({
 
+		events: {
+			"click #info": "showInfo"
+		},
+
 		initialize: function() {
 			this.template = _.template(threadTemplate);
 
@@ -38,6 +42,10 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 			var offset   = (document.height * position);
 			window.scrollTo(0, offset);
 			return this;
+		},
+
+		showInfo: function () {
+			
 		}
 
 	});
