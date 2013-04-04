@@ -7,8 +7,15 @@ define(['backbone', 'text!templates/nodes.html'], function (Backbone, nodesTemp)
 		},
 
 		initialize: function () {
+			var that = this;
 			this.template = _.template(nodesTemp);
 			_.each(this.collection.models, this.render, this);
+
+			App.router.on("route:showThread", function (id) {
+				var aNode = that.$('#node-'+id);
+				that.$('.node-link').not(aNode).removeClass('active');
+				aNode.addClass('active');
+			});
 		},
 
 		render: function (model) {
