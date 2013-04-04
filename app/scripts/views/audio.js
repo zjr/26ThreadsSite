@@ -41,11 +41,11 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 
 		switch: function (event) {
 			// set active state
-			this.$('.key-button').not(event.target).removeClass('active');
-			$(event.target).toggleClass('active');
+			this.$('.key-button').not(event.currentTarget).removeClass('active');
+			$(event.currentTarget).toggleClass('active');
 
 			// switch loops
-			var track = Number($(event.target).attr("data-id"));
+			var track = Number($(event.currentTarget).attr("data-id"));
 			if (this.audioOn) {
 				if (this.currentTrack !== track) {
 					this.loop.update(track, false);
