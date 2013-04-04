@@ -11,14 +11,18 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 			App.router.on("route:showThread", function (id) {
 				that.model = that.collection.get(id);
 				if (App.threadScroller === true) {
-					that.render().update(id).scrollThere();
+					that.render(id).update(id).scrollThere();
 				} else {
-					that.render().update(id);
+					that.render(id).update(id);
 				}
 			});
 		},
 
-		render: function () {
+		render: function (id) {
+			var threadCount  = 26;
+			var portion      = 1 / threadCount;
+			var threadInvert = 26 + 1 - id
+			this.model.attributes.threadPosition = portion * threadInvert
 			this.$el.html(this.template(this.model.attributes))
 			return this;
 		},
