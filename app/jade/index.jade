@@ -4,7 +4,8 @@ include layouts/default
 		- var height = 40000
 		div#main(style='height: #{height}px')
 			header.header
-				h1 26 Threads 0.2.7
+				h1 26 Threads
+				ul#audio-container.keys
 			article#thread-container
 			nav.node-container
 				ul#node-list.nodes
@@ -12,5 +13,4 @@ include layouts/default
 				img(
 					src='/assets/images/video-bg/vid-0001.jpg',
 					style='width: 100%; height: 100%;')
-			ul#audio-container.keys
 
