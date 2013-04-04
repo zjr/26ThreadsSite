@@ -24,6 +24,8 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 				{id: 3, title: "Physic"}
 			];
 			_.each(this.tracks, this.render, this);
+			// Add active class to auto played track.
+			this.$('.key-button[data-id="1"]').addClass('active');
 		},
 
 		soundsLoaded: function () {
@@ -37,6 +39,11 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 		},
 
 		switch: function (event) {
+			// set active state
+			this.$('.key-button').not(event.target).removeClass('active');
+			$(event.target).toggleClass('active');
+
+			// switch loops
 			var track = Number($(event.target).attr("data-id"));
 			if (this.audioOn) {
 				if (this.currentTrack !== track) {
