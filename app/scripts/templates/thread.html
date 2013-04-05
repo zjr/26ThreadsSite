@@ -3,31 +3,36 @@
 	data-speed="1"
 	data-position="<%= threadPosition %>">
 	<p class="thread-number"><%= id %></p>
-	<h2 class="thread-title"><%= title.toTitle() %></h2>
-	<% // thread type switches %>
-	<% if (video.url || id === 26) { %>
-		<% if (video.locked) { %>
-			<% // timer type %>
-			<div class="button-hourglass"></div>
-			<p class="timer">
-				<% // release datetime  %>
-				TIMERS!!!!
-			</p>
+	<div class="willHide">
+		<h2 class="thread-title"><%= title.toTitle() %></h2>
+		<% // thread type switches %>
+		<% if (video.url || id === 26) { %>
+			<% if (video.locked) { %>
+				<% // timer type %>
+				<div class="button-hourglass"></div>
+				<p class="timer">
+					<% // release datetime  %>
+					TIMERS!!!!
+				</p>
+			<% } else { %>
+				<% // video type %>	
+				<a
+					class="button-play"
+					href="#thread/<%= id %>/video"
+					title="26 Threads Video"
+					>Play</a>
+			<% } %>
 		<% } else { %>
-			<% // video type %>	
+			<% // regular type %>
 			<a
-				class="button-play"
-				href="#thread/<%= id %>/video"
-				title="26 Threads Video"
-				>Play</a>
+				class="button-next"
+				href="#thread/<%= id + 1 %>"
+				>Next</a>
 		<% } %>
-	<% } else { %>
-		<% // regular type %>
-		<a
-			class="button-next"
-			href="#thread/<%= id + 1 %>"
-			>Next</a>
-	<% } %>
-	<% if (subTitle) { %><h3 class="thread-subtitle"><%= subTitle.toTitle() %></h3><% } %>
-	<!-- <p class="description"><%= description %></p> -->
+		<% if (subTitle) { %><h3 class="thread-subtitle"><%= subTitle.toTitle() %></h3><% } %>
+	</div>
+</section>
+<button data-id="<%= id %>" class="info-link">More Info</button>
+<section class="info">
+	<p class="thread-desc"><%= description %></p>
 </section>

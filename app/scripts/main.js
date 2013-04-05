@@ -115,7 +115,14 @@ require([
 				collection: App.threadCol
 			});
 
-			Backbone.history.start();
+			if (Backbone.history.start()) {
+				var linkComponents = window.location.href.split('/');
+				var pop = linkComponents.pop();
+				var id = linkComponents[4];
+				if (pop === 'info') {
+					App.threadView.showInfo(id);
+				}
+            }
 
 			$(document).keydown(function (e) {
 				switch(e.which) {
@@ -139,4 +146,4 @@ require([
 			App.audioView = new AudioView({ el: $('#audio-container') });
 
 		});
-});
+	});

@@ -10,6 +10,7 @@
 @import compass/typography/links/unstyled-link
 @import compass/utilities/sprites
 @import compass/utilities/general/clearfix
+@import compass/css3/opacity
 
 /*! Made by RipeType: http://www.ripetype.com.au/ */
 @import inc/ripe/plain
@@ -17,7 +18,6 @@
 
 /*! Rothman by David Rakowski: http://www.fontsquirrel.com/fonts/Rothman */
 @import inc/rothman/plain
-
 
 $button-play-spacing: 10px
 @import "button/*.png"
@@ -93,20 +93,24 @@ body
 		display: inline-block
 		background-image: inline-image('FOLBG.png')
 
-.thread
+#thread-container
 	top: 50%
 	left: 50%
 	z-index: 1
-	position: absolute
+	position: fixed
 	width: 400px
 	height: 400px
-	padding: 40px
-	+box-sizing(border-box)
 	margin-top: -200px
 	margin-left: -200px
+	padding: 40px
+	+box-sizing(border-box)
 	+border-radius(300px)
 	border: 5px solid rgba(white, 0.8)
 	background: rgba(black, 0.8)
+	
+.thread
+	width: 100%
+	height: 100%
 	text-align: center
 	font-family: "RipeBold", "Helvetica Neue", Helvetica, Arial, sans-serif
 	font-weight: bold
@@ -120,19 +124,14 @@ body
 	font-size: 1.3em
 	line-height: 1.6em
 .thread-subtitle
-	left: 0
-	bottom: 3em
-	position: absolute
-	width: 100%
+	margin-top: 1rem
 
 .button-hourglass,
 .button-play,
 .button-next
-	// font-size: 0
-	// color: transparent
 	position: relative
 	display: block
-	margin-top: 2em
+	margin-top: 1em
 .button-play
 	@include button-sprite(play)
 	$playNormoWidth: button-sprite-width(play)
@@ -145,10 +144,11 @@ body
 	color: transparent
 	font-size: 0
 
-	margin: 2rem auto 0
+	margin: 1rem auto 0
 
 	width: $playHoverWidth
 	height: $playHoverHeight
+
 	padding: $playNormoPaddingV $playNormoPaddingH
 	background-origin: content-box
 	+box-sizing(border-box)
@@ -158,6 +158,63 @@ body
 		padding: 0
 		height: $playHoverHeight
 		width: $playHoverWidth
+
+.info-link
+	position: relative
+	width: 1.0625rem
+	height: 1.0625rem
+	padding: 0
+	margin: auto
+	display: block
+	font-size: 0
+	color: transparent
+	background: rgba(black, 0.7)
+	+border-radius(10px)
+	border: 2px solid rgba(white, 0.7)
+	cursor: pointer
+	+box-sizing(content-box)
+	&:before,
+	&:after
+		+pseudo(100%, 100%, false, "i")
+		color: white
+		font-size: 0.875rem
+		line-height: 1.0625rem
+		text-align: center
+		top: 0
+	&:before
+		font-family: "Times New Roman", serif
+		font-style: italic
+		font-weight: 800
+		+opacity(1)
+	&.active:before
+		+opacity(0)
+	&:after
+		content: "x"
+		+opacity(0)
+	&.active:after
+		+opacity(1)
+
+.willHide
+	+opacity(1)
+	+single-transition(opacity, 0.3s, ease-out, 0.3s)
+.thread.infoOn .willHide
+	+opacity(0)
+	+single-transition(opacity, 0.3s, ease-out)
+
+.info
+	+single-transition(opacity, 0.3s, ease-out)
+	+opacity(0)
+	&.active
+		+single-transition(opacity, 0.3s, ease-out, 0.3s)
+		+opacity(1)
+.thread-desc
+	top: 35%
+	left: 0
+	position: absolute
+	width: 100%
+	padding: 0 20px
+	text-align: center
+	box-sizing: border-box
 
 .node-container
 	top: 0
@@ -267,9 +324,9 @@ body
 		// plus one, image is off a bit
 		margin-left: - ($hoverWidth / 2) + 1
 		margin-top: $hoverMTop
-		opacity: 0
+		+opacity(0)
 	&:hover:before
-		opacity: 1
+		+opacity(1)
 
 	// Dead/Normal Light
 	&:after
@@ -278,11 +335,11 @@ body
 		height: $normalHeight
 		// plus one, image is off a bit
 		margin-left: - ($normalWidth / 2) + 1
-		opacity: 1
+		+opacity(1)
 	&:hover:after
-		opacity: 0.7
+		+opacity(0.7)
 	&.active:after
-		opacity: 0
+		+opacity(0)
 
 	// Wave/Active Light
 	> span
@@ -291,9 +348,9 @@ body
 		height: $activeHeight
 		margin-left: - ($activeWidth / 2)
 		// pointer-events: none
-		opacity: 0
+		+opacity(0)
 	&.active span
-		opacity: 1
+		+opacity(1)
 
 	&.active
 		background: #8ad388
