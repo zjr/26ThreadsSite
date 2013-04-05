@@ -3,9 +3,9 @@ define(['backbone'], function (Backbone) {
 	var AppRouter = Backbone.Router.extend({
 
 		routes: {
-			"info":            "showInfo",    // #info
 			"thread/:id":      "showThread",  // #thread/11
-			"thread/:id/play": "showVideo"    // #thread/11/play
+			"thread/:id/play": "showThread",  // #thread/11/play
+			"thread/:id/info": "showThread"   // #thread/11/info
 		},
 
 		showThread: function (id) {
