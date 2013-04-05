@@ -36,6 +36,19 @@ $default-box-shadow-h-offset: 1px
 $default-box-shadow-v-offset: 1px
 $default-box-shadow-blur: 2px
 
+// Mixins, should go somewhere
+@mixin pseudo($height, $width, $center: false, $content: ".")
+	content: $content
+	@if $content == "."
+		font-size: 0
+		color: transparent
+	width: $width
+	height: $height
+	display: block
+	@if $center == true
+		left: 50%
+		margin-left: - ($width / 2)
+	position: absolute
 
 html, body
 	width: 100%
