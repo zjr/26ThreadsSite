@@ -91,7 +91,7 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 					$this.css({
 						'visibility': 'none',
 						// top: '-1000px',
-						'webkitTransform': 'none'
+						// 'webkitTransform':, 'none'
 					});
 				} else {
 					$this.css({
@@ -99,7 +99,7 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 						// should simplify... this is unnecessary
 						// should just have container element absolutely positioned to viewport.
 						// top: elY,
-						position: 'fixed'
+						// position: 'fixed'
 					});
 				}
 			});
