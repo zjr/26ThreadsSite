@@ -39,21 +39,21 @@ require([
 		String.method('toTitle', function(glue) {
 			glue = (glue) ? glue : ['of', 'for', 'and', 'vs', 's'];
 			return this.replace(/(\w)(\w*)/g, function(_, i, r){
-				var j = i.toUpperCase() + (r != null ? r : "");
+				var j = i.toUpperCase() + (r !== null ? r : '');
 				return (glue.indexOf(j.toLowerCase())<0)?j:j.toLowerCase();
 			});
 		});
 
 		Number.method('toInt', function () {
 			return Math.round(Number(this));
-		})
+		});
 
 		window.App = {};
 
 		$(document).ready(function(){
 
 			window.scrollTo(0, $(document).height()-$(window).height());
-			
+
 			App.router = new Router();
 
 			App.view = new AppView({ el: $('#video-container') });
@@ -70,7 +70,7 @@ require([
 			App.view.loadCounterForIE = 0;
 			App.view.imgSeqLoader.loadPosition(App.view.currentPosition,function(){
 				App.view.loadCounterForIE++;
-				if (App.view.loadCounterForIE == 1) {
+				if (App.view.loadCounterForIE === 1) {
 					App.view.renderVideo(App.view.currentPosition);
 					App.view.imgSeqLoader.load();
 					App.view.imgSeqLoader.load();
@@ -93,7 +93,7 @@ require([
 
 			function animLoop () {
 				var that = App.view;
-				if (Math.floor(that.currentPosition*5000) != Math.floor(that.targetPosition*5000)) {
+				if (Math.floor(that.currentPosition*5000) !== Math.floor(that.targetPosition*5000)) {
 					that.currentPosition += (that.targetPosition - that.currentPosition) / 5;
 					that.render(that.currentPosition);
 				}
@@ -113,26 +113,26 @@ require([
 			App.nodeView = new NodesView({
 				el: $('#node-list'),
 				collection: App.threadCol
-			})
+			});
 
 			Backbone.history.start();
 
 			$(document).keydown(function (e) {
 				switch(e.which) {
-					// Up key
-					case 38:
-						if (App.view.currentId !== 26) {
-							App.router.navigate('#thread/'+(App.view.currentId + 1), {trigger: true});
-						}						
-						break;
-					// Down key
-					case 40:
-						if (App.view.currentId !== 1) {
-							App.router.navigate('#thread/'+(App.view.currentId - 1), {trigger: true});
-						} else {
-							// Glow!!!
-						}
-						break;
+				// Up key
+				case 38:
+					if (App.view.currentId !== 26) {
+						App.router.navigate('#thread/'+(App.view.currentId + 1), {trigger: true});
+					}
+					break;
+				// Down key
+				case 40:
+					if (App.view.currentId !== 1) {
+						App.router.navigate('#thread/'+(App.view.currentId - 1), {trigger: true});
+					} else {
+						// Glow!!!
+					}
+					break;
 				}
 			});
 
