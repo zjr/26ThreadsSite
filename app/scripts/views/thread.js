@@ -1,4 +1,5 @@
 define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTemplate) {
+	'use strict';
 
 	var ThreadView = Backbone.View.extend({
 
