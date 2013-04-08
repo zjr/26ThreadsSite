@@ -2,7 +2,7 @@ require.config({
 	paths: {
 		bootstrap:  'vendor/bootstrap',
 		jquery:     '../components/jquery/jquery',
-		prefixFree: '../components/prefix-free/prefixfree',
+		// prefixFree: '../components/prefix-free/prefixfree',
 		// threeJS:    '../components/threejs/src/Three',
 		backbone:   '../components/backbone-amd/backbone',
 		underscore: '../components/underscore-amd/underscore',
@@ -25,8 +25,7 @@ require([
 		'views/thread',
 		'views/nodes',
 		'views/audio',
-		'progImgSeq',
-		'prefixFree'
+		'progImgSeq'
 	],
 	function ($, AppView, Router, Threads, ThreadView, NodesView, AudioView) {
 		'use strict';
