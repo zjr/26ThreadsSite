@@ -33,10 +33,10 @@ module.exports = function (grunt) {
 				files: ['test/spec/{,*/}*.coffee'],
 				tasks: ['coffee:test']
 			},
-			compass: {
-				files: ['<%= yeoman.app %>/styles/main.sass'],
-				tasks: ['compass']
-			},
+			//compass: {
+				//files: ['<%= yeoman.app %>/styles/main.sass'],
+				//tasks: ['compass']
+			//},
 			jade: {
 				files: ['<%= yeoman.app %>/jade/{,*/}*.jade'],
 				tasks: 'jade'
@@ -165,7 +165,9 @@ module.exports = function (grunt) {
 				importPath: '<%= yeoman.app %>/components',
 				relativeAssets: true
 			},
-			dist: {},
+			dist: {
+				environment: 'production'
+			},
 			server: {
 				options: {
 					debugInfo: true
@@ -282,7 +284,7 @@ module.exports = function (grunt) {
 		grunt.task.run([
 			'clean:server',
 			'coffee:dist',
-			'compass:server',
+			//'compass:server',
 			'livereload-start',
 			'connect:livereload',
 			// 'open',
