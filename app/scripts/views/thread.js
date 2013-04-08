@@ -4,7 +4,8 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 	var ThreadView = Backbone.View.extend({
 
 		events: {
-			"click .info-link": "showInfo"
+			'click .info-link': 'showInfo',
+			'click .button-play': 'showVideo'
 		},
 
 		initialize: function() {
@@ -71,6 +72,10 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 				this.$('.info-link').removeClass('active');
 				App.router.navigate('thread/'+arg, {});
 			}
+		},
+
+		showVideo: function () {
+			App.router.navigate('video');
 		}
 
 	});
