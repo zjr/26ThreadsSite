@@ -8,7 +8,8 @@ define(['backbone'], function (Backbone) {
 			"video": {
 				"url": null,
 				"locked": false,
-				"release": null
+				"release": null,
+				"vimeoId": null
 			}
 		}
 	});
