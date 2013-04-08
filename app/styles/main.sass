@@ -20,6 +20,7 @@
 @import inc/rothman/plain
 
 $button-play-spacing: 10px
+$button-t26-spacing: 19px
 @import "button/*.png"
 
 @import "light/*.png"
@@ -224,7 +225,7 @@ body
 	height: 100%
 .nodes
 	height: 100%
-	padding: 1em 0 1em 0
+	padding: 1em 0.45rem 1em 0
 	margin: 0
 	+box-sizing(border-box)
 	font-size: 0.6em
@@ -232,6 +233,7 @@ body
 	list-style: none
 .node-link-container
 	height: (100/26)*1%
+	margin-bottom: -2px
 .node-link
 	height: 1.4em
 	// I should set hard values for height and padding with jQuery
@@ -266,6 +268,47 @@ body
 	&:after
 		+box-shadow($blueGlow 0 0 10px 3px)
 		+single-transition(all, 0.3s, ease-out)
+#node-anchor
+	+button-sprite(anchor)
+	width: button-sprite-width(anchor)
+	height: button-sprite-height(anchor)
+	position: absolute
+	right: 0.5rem
+.node-link-container:first-child
+	margin-bottom: 1rem
+	margin-top: 0.4rem
+#node-26
+	$width: button-sprite-width(t26Glow)
+	$height: button-sprite-height(t26Glow)
+	padding-right: 5em
+	&:hover,
+	&.active
+		padding-right: 4em
+	&:before
+		$paddingH: ( $width - button-sprite-width(t26) ) / 2
+		$paddingV: ( $height - button-sprite-width(t26) ) / 2
+		+pseudo($width, $height)
+		top: 0
+		right: -1.15rem
+		padding: $paddingV $paddingH
+		+box-sizing(border-box)
+		+button-sprite(t26)
+		+single-transition(all, 0.3s, ease-out)
+		opacity: 1
+	&:hover:before,
+	&.active:before
+		opacity: 0
+	&:after
+		top: -0.4375rem
+		right: -0.55rem
+		+pseudo($width, $height)
+		+button-sprite(t26Glow)
+		opacity: 0
+		box-shadow: none
+	&:hover:after,
+	&.active:after
+		opacity: 1
+		box-shadow: none
 
 .keys
 	width: 100%
@@ -309,6 +352,7 @@ body
 	> span
 		content: "."
 		font-size: 0
+
 		color: transparent
 		display: block
 		top: 1rem
