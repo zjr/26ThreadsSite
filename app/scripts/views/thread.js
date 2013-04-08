@@ -14,14 +14,21 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 			// Scroll when initialiazed
 			App.threadScroller = true;
 
-			App.router.on("route:showThread", function (id) {
-				that.model = that.collection.get(id);
-				if (App.threadScroller === true) {
-					that.render(id).update(id).scrollThere();
-				} else {
-					that.render(id).update(id);
-				}
+			App.router.on('route:showThread', function (id) {
+				that.decider(id);
 			});
+		},
+
+		decider: function (id) {
+			this.model = this.collection.get(id);
+			if (App.threadScroller === true) {
+				this.render(id)
+					.update(id)
+					.scrollThere();
+			} else {
+				this.render(id)
+					.update(id);
+			}
 		},
 
 		render: function (id) {
@@ -47,7 +54,7 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 		},
 
 		showInfo: function (arg) {
-			if (typeof(arg) !== "string") {
+			if (typeof(arg) !== 'string') {
 				arg = $(arg.currentTarget).attr('data-id');
 			}
 			if (!this.infoOn) {
