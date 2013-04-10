@@ -7,7 +7,7 @@ require.config({
 		backbone:   '../components/backbone-amd/backbone',
 		underscore: '../components/underscore-amd/underscore',
 		json2:      '../components/json2/json2',
-		modal:      '../components/jquery-modal/jquery.modal.min',
+		modal:      '../components/jquery-modal/jquery.modal',
 		progImgSeq: 'vendor/progressiveImageSequence'
 	},
 	shim: {
