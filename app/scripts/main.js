@@ -95,7 +95,7 @@ require([
 					that.currentPosition += (that.targetPosition - that.currentPosition) / 5;
 					that.render(that.currentPosition);
 				}
-				reqAnimFrame(animLoop);
+				window.reqAnimFrame(animLoop);
 			}
 
 			animLoop();
