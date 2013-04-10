@@ -100,6 +100,8 @@ require([
 
 			animLoop();
 
+			App.audioView = new AudioView({ el: $('#audio-container') });
+
 			App.threadCol = new Threads();
 			App.threadCol.fetch({ async:false });
 
@@ -140,8 +142,6 @@ require([
 					break;
 				}
 			});
-
-			App.audioView = new AudioView({ el: $('#audio-container') });
 
 		});
 	});
