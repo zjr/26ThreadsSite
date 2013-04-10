@@ -1,11 +1,12 @@
 define(['backbone', 'progImgSeq'], function (Backbone) {
+	'use strict';
 
 	var AppView = Backbone.View.extend({
 		initialize: function () {
 			// store elements; $el = #video-container
 			this.$doc  = $(document);
 			this.$win  = $(window);
-			this.video = this.$el.children()[0]
+			this.video = this.$el.children()[0];
 
 			//
 			this.currentSrc = null;
@@ -51,7 +52,7 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 		},
 		resizeBackgroundImage: function () {
 			var scale = Math.max( this.winHeight/this.vidImgHeight, this.winWidth/this.vidImgWidth );
-			
+
 			var width  = scale * this.vidImgWidth;
 			var height = scale * this.vidImgHeight;
 
@@ -67,8 +68,8 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 		handleScroll: function () {
 			this.targetPosition = this.$win.scrollTop() / this.scrollHeight;
 			var position = ((this.targetPosition) * 26).toInt();
-			var position = position === 0 ? 1 : position;
-			var id = 27 - position;
+			var nPosition = position === 0 ? 1 : position;
+			var id = 27 - nPosition;
 			if (id !== this.currentId) {
 				App.threadScroller = false;
 				App.router.navigate('#thread/' + id, {trigger: true});
@@ -79,13 +80,15 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 			var _el = $('.thread');
 			var minY = -this.winHeight;
 			var maxY = this.winHeight;
-			var scrollHeight  = this.scrollHeight
+			var scrollHeight  = this.scrollHeight;
 
-			$.each(_el, function (index, element) {
-				var $this = $(this);				
+			// index, element never used
+			// $.each(_el, function (index, element) {
+			$.each(_el, function () {
+				var $this = $(this);
 				var elPosition = Number($this.attr('data-position'));
 				var elSpeed    = Number($this.attr('data-speed'));
-				var elY = maxY/2 + elSpeed * (elPosition - position) * scrollHeight
+				var elY = maxY/2 + elSpeed * (elPosition - position) * scrollHeight;
 
 				if (elY < minY || elY > maxY) {
 					$this.css({
@@ -106,19 +109,22 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 
 			this.renderVideo(position);
 		},
-		renderVideo: function (position) {
+		// Position is never used
+		//renderVideo: function (position) {
+		renderVideo: function () {
 			var index = Math.round(this.currentPosition * (this.imgSeqLoader.length - 1));
 
 			var img = this.imgSeqLoader.getNearest(index);
-			var $img = $(img)
+			// Never used
+			//var $img = $(img);
 			var src;
 
 			var nearestIndex = this.imgSeqLoader.nearestIndex;
-			if (nearestIndex < 0) nearestIndex = 0;
+			if (nearestIndex < 0) { nearestIndex = 0; }
 
 			if(!!img) {
 				src = img.src;
-				if (src != this.currentSrc) {
+				if (src !== this.currentSrc) {
 					this.video.src = src;
 					this.currentSrc = src;
 				}
@@ -126,5 +132,5 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 		}
 	});
 
-	return AppView; 
+	return AppView;
 });

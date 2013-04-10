@@ -1,9 +1,11 @@
+/* globals SeamlessLoop:false */
 define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'text!audio/PhysicURI', 'text!templates/audio.html', 'audio/seamless'], function (Backbone, Bangalore, Hypercarnal, Physic, audioTemplate) {
+	'use strict';
 
 	var AudioView = Backbone.View.extend({
-		
+
 		events: {
-			"click button": "switch"
+			'click button': 'leSwitch'
 		},
 
 		initialize: function () {
@@ -19,9 +21,9 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 
 			this.template = _.template(audioTemplate);
 			this.tracks = [
-				{id: 1, title: "Bangalore Rose"},
-				{id: 2, title: "Hypercarnal Ascension"},
-				{id: 3, title: "Physic"}
+				{id: 1, title: 'Bangalore Rose'},
+				{id: 2, title: 'Hypercarnal Ascension'},
+				{id: 3, title: 'Physic'}
 			];
 			_.each(this.tracks, this.render, this);
 
@@ -36,16 +38,16 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 		},
 
 		render: function (element) {
-			this.$el.append(this.template(element))
+			this.$el.append(this.template(element));
 		},
 
-		switch: function (event) {
+		leSwitch: function (event) {
 			// set active state
 			this.$('.key-button').not(event.currentTarget).removeClass('active');
 			$(event.currentTarget).toggleClass('active');
 
 			// switch loops
-			var track = Number($(event.currentTarget).attr("data-id"));
+			var track = Number($(event.currentTarget).attr('data-id'));
 			if (this.audioOn) {
 				if (this.currentTrack !== track) {
 					this.loop.update(track, false);
@@ -62,5 +64,5 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 		}
 	});
 
-	return AudioView; 
+	return AudioView;
 });
