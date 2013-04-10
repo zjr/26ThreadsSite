@@ -9,6 +9,7 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 		},
 
 		initialize: function () {
+			this.loaded = false;
 
 			// Whole lot of stuff that should be split into collections and models.
 			this.uri = [Bangalore, Hypercarnal, Physic];
@@ -32,9 +33,11 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 		},
 
 		soundsLoaded: function () {
-			// App.audioView.loop.start(1);
-			// App.audioView.currentTrack = 1;
-			// App.audioView.audioOn = true;
+			// Sad messed up context :-(
+			App.audioView.loaded = true;
+			//App.audioView.loop.start(1);
+			//App.audioView.currentTrack = 1;
+			//App.audioView.audioOn = true;
 		},
 
 		render: function (element) {
@@ -61,6 +64,21 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 				this.audioOn = true;
 				this.currentTrack = track;
 			}
+		},
+
+		specialStop: function () {
+			var tries = typeof(tries) === 'undefined' ? 0 : tries;
+			if (!App.audioView.loaded && tries < 50) {
+				window.setTimeout(App.audioView.specialStop, 25);
+			} else {
+				try {
+					App.audioView.loop.stop();
+					App.audioView.audioOn = false;
+				} catch (e) {
+					console.log('specialStop: ' + e + ', but nobody cares.');
+				}
+			}
+			tries++;
 		}
 	});
 
