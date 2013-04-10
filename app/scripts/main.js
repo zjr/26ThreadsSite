@@ -121,6 +121,8 @@ require([
 				var id = linkComponents[4];
 				if (pop === 'info') {
 					App.threadView.showInfo(id);
+				} else if (pop === 'video') {
+					App.threadView.decider(id);
 				}
             }
 
