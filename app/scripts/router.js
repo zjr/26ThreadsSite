@@ -18,9 +18,14 @@ define(['backbone', 'views/video', 'views/xmodal'], function (Backbone, VideoVie
 		},
 
 		moreInfo: function () {
-			App.xModalView = new XModalView({
-				el: $('#xModal')
-			});
+			var $elm = $('#xModal')
+			if (!App.xModalView) {
+				App.xModalView = new XModalView({
+					el: $elm
+				});
+			} else {
+				App.xModalView.render();
+			}
 		}
 
 	});

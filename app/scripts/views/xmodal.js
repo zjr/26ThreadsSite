@@ -5,13 +5,12 @@ define(['backbone', 'text!templates/xmodal.html', 'modal'], function (Backbone, 
 
 		initialize: function () {
 			this.template = _.template(xModalTemplate);
+			this.$el.html(this.template());
 			this.render();
 		},
 
 		render: function () {
-
-			this.$el.html(this.template());
-
+			this.$el.height($(window).height() * 0.8);
 			this.$el.modal({
 				zIndex: 2,
 				closeText: 'x'
