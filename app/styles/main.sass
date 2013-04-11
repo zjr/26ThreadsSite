@@ -25,6 +25,8 @@ $button-t26-spacing: 19px
 
 @import "light/*.png"
 
+@import "social/*.png"
+
 $blueGlow: rgba(#17aae0, 1)
 
 $default-text-shadow-color: rgba(black, 0.5)
@@ -409,3 +411,58 @@ body
 	text-align: right
 	position: absolute
 	right: 0
+.social
+	float: right
+	width: 50%
+	.social-item
+		float: right
+		margin-right: 0.5rem
+	.modal-subtitle
+		text-align: right
+	.twitter
+		margin-right: 0
+	.vimeo
+		width: 6.1rem
+		margin-top: 1.3em
+		a
+			display: block
+		img
+			margin: auto
+			display: block
+	.g26
+		width: 3.875rem
+		margin-top: 1.1rem
+		margin-right: 0
+		img
+			width: 3.875rem
+	.ico
+		position: relative
+		color: transparent
+		font-size: 0
+		width: 1rem
+		height: 1rem
+		margin-top: 0.1rem
+		display: block
+		&:before,
+		&:after
+			top: 0
+			left: 0
+			+pseudo(1rem, 1rem)
+			+single-transition(opacity, 0.3s, ease-out)
+			cursor: pointer
+		&:before
+			opacity: 1
+		&:after
+			opacity: 0
+		&:hover:after
+			opacity: 1
+		&.tw:before
+			+social-sprite(tw)
+		&.tw:after
+			+social-sprite(twO)
+		&.fb:before
+			+social-sprite(fb)
+		&.fb:after
+			+social-sprite(fbO)
+
+.def-wrap

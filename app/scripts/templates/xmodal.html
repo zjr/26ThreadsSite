@@ -1,4 +1,13 @@
-<div class="moreInfo">
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<h3 class="modal-title">More Info</h3>
+<div class="moreInfo-container">
 	<div class="row">
 		<div class="email-notifier">
 			<form action="">
@@ -6,14 +15,35 @@
 				<button type="submit">Sumbit</button>
 			</form>
 		</div>
-		<div class="social">
-			<div class="social-item"></div>
-			<div class="social-item"></div>
-			<div class="social-item"></div>
-			<div class="social-item"></div>
-			<div class="social-item"></div>
-		</div>
+		<ul class="social">
+			<h4 class="modal-subtitle">Other Links</h4>
+			<div class="clearfix">
+				<li class="social-item twitter">
+					<a class="ico tw" href="//twitter.com/thebeachmonster" target="_blank">Twitter</a>
+				</li>
+				<li class="social-item facebook-link">
+					<a class="ico fb" href="https://www.facebook.com/26threads" target="_blank">Facebook</a>
+				</li>
+				<li class="social-item facebook-like">
+					<div class="fb-like" data-href="https://www.facebook.com/26threads" data-send="true" data-layout="button_count" data-width="450" data-show-faces="false" data-colorscheme="dark"></div>
+				</li>
+			</div>
+			<div class="clearfix">
+				<li class="social-item g26">
+					<a href="//g26.org" target="_blank">
+						<img src="/assets/images/g26.png" alt="Visit Group 26">
+					</a>
+				</li>
+				<li class="social-item vimeo">
+					<a href="http://vimeo.com/channels/26users" target="_blank">
+						<img src="/assets/images/vimeo_logo_blue.png" alt="Visit the 26 Threads Users Channel">
+					</a>
+				</li>
+			</div>
+		</ul>
 	</div>
+
+
 	<div class="row">
 		<div class="credits">
 			<dl>
