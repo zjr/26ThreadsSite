@@ -403,14 +403,17 @@ body
 		background: rgba(#8ad3ee, 0.3)
 		+background-image(linear-gradient(rgba(#8ad3ee, 0.3), rgba(#0e5772, 0.3)))
 		border: 2px solid rgba(33%,62%,72%,0.8)
-
-.video-title
+.video-title, .modal-title
 	line-height: 1.618em
+	position: absolute
+	top: -1.618em
 .close-modal
 	+unstyled-link
 	text-align: right
-	position: absolute
 	right: 0
+	bottom: -1rem
+	position: absolute
+
 .social
 	float: right
 	width: 50%
