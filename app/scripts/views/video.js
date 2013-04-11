@@ -28,19 +28,6 @@ define(['backbone', 'text!templates/video.html', 'modal'], function (Backbone, v
 			var aspect = 0.5625;
 
 			this.$el.width(mWidth).height(mWidth * aspect);
-		},
-
-		close: function () {
-			App.router.navigate(
-				'thread/'+App.view.currentId,
-				{replace: true}
-			);
-			App.videoView.$('iframe').remove();
-
-			// Restart the soundtrack
-			if (App.audioView.audioOn) {
-				App.audioView.loop.start(App.audioView.currentTrack);
-			}
 		}
 
 	});

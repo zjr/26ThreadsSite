@@ -116,6 +116,19 @@ require([
 				collection: App.threadCol
 			});
 
+			App.closeModal = function () {
+				App.router.navigate(
+					'thread/'+App.view.currentId,
+					{replace: true}
+				);
+				App.videoView.$('iframe').remove();
+
+				// Restart the soundtrack
+				if (App.audioView.audioOn) {
+					App.audioView.loop.start(App.audioView.currentTrack);
+				}
+			};
+
 			if (Backbone.history.start()) {
 				var linkComponents = window.location.href.split('/');
 				var pop = linkComponents.pop();
