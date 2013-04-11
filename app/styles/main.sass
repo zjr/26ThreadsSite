@@ -406,16 +406,49 @@ body
 		background: rgba(#8ad3ee, 0.3)
 		+background-image(linear-gradient(rgba(#8ad3ee, 0.3), rgba(#0e5772, 0.3)))
 		border: 2px solid rgba(33%,62%,72%,0.8)
+
+
 .video-title, .modal-title
 	line-height: 1.618em
 	position: absolute
 	top: -1.618em
+
+
+.modal-subtitle
+	font-size: 1.3em
+	line-height: 1.5em
+
 .close-modal
 	+unstyled-link
 	text-align: right
 	right: 0
 	bottom: -1rem
 	position: absolute
+
+.moreInfo
+	width: 40%
+	height: 75%
+	border: 2px solid rgba(white, 0.8)
+	color: rgba(white, 0.8)
+
+.moreInfo-container
+	height: 100%
+	background: rgba(black, 0.8)
+	font-size: 0.8em
+	font-weight: 400
+	overflow: hidden
+	overflow-y: scroll
+	.row
+		margin-bottom: 1rem
+		+clearfix
+		> div, > ul
+			+box-sizing(border-box)
+			padding: 1rem
+
+	.xmodal-title
+		font-size: 2em
+		text-align: center
+		margin-bottom: 0.5em
 
 .social
 	float: right
