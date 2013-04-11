@@ -1,3 +1,4 @@
+/* globals ProgressiveImageSequence:false */
 require.config({
 	paths: {
 		bootstrap:  'vendor/bootstrap',
@@ -84,7 +85,7 @@ require([
 							 window.mozRequstAnimationFrame    ||
 							 window.msRequstAnimationFrame     ||
 							 window.oRequstAnimationFrame      ||
-				function (callback, element) {
+				function (callback) {
 					window.setTimeout(callback, 1000 / 60);
 				};
 			})();
