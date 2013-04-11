@@ -8,3 +8,5 @@ app/assets/fonts
 untracked_assets
 app/styles/*.css
 app/styles/main.css.map
+*.sublime-project
+*.sublime-workspace
