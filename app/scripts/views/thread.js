@@ -1,4 +1,4 @@
-define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTemplate) {
+define(['backbone', 'views/cDwn', 'text!templates/thread.html'], function (Backbone, CDwnView, threadTemplate) {
 	'use strict';
 
 	var ThreadView = Backbone.View.extend({
@@ -34,8 +34,19 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 			var threadCount  = 26;
 			var portion      = 1 / threadCount;
 			var threadInvert = 26 + 1 - id;
-			this.model.attributes.threadPosition = portion * threadInvert
-			this.$el.html(this.template(this.model.attributes))
+
+			this.model.attributes.threadPosition = portion * threadInvert;
+			this.$el.html(this.template(this.model.attributes));
+
+			var release = this.model.attributes.video.release;
+			if (release) {
+				this.timer = new CDwnView({
+					id: id,
+					el: this.$('#timer'),
+					rawDate: release
+				});
+			}
+
 			return this;
 		},
 
