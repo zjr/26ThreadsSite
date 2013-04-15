@@ -24,12 +24,9 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 		decider: function (id) {
 			this.model = this.collection.get(id);
 			if (App.threadScroller === true) {
-				this.render(id)
-					.update(id)
-					.scrollThere();
+				this.render(id).update(id).scrollThere();
 			} else {
-				this.render(id)
-					.update(id);
+				this.render(id).update(id);
 			}
 		},
 
