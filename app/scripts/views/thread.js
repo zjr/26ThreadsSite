@@ -57,13 +57,13 @@ define(['backbone', 'text!templates/thread.html'], function (Backbone, threadTem
 				arg = $(arg.currentTarget).attr('data-id');
 			}
 			if (!this.infoOn) {
-				this.infoOn = true
+				this.infoOn = true;
 				this.$('.thread').addClass('infoOn');
 				this.$('.info').addClass('active');
 				this.$('.info-link').addClass('active');
 				App.router.navigate('thread/'+arg+'/info');
 			} else {
-				this.infoOn = false
+				this.infoOn = false;
 				this.$('.thread').removeClass('infoOn');
 				this.$('.info').removeClass('active');
 				this.$('.info-link').removeClass('active');
