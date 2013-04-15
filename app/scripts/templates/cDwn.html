@@ -1,0 +1,14 @@
+<% if (!unLocked) { %>
+	<% // timer type %>
+	<div class="button-hourglass"></div>
+	<p class="timer">
+		<% // release timer  %>
+		<%= days %> :
+		<%= 24 - hours %> :
+		<%= 60 - minutes %> :
+		<%= 60 - seconds %>
+	</p>
+<% } else { %>
+	<% // video type %>	
+	<a class="button-play" href="#thread/<%= id %>/video" title="26 Threads Video">Play</a>
+<% } %>
