@@ -167,6 +167,39 @@ body
 		height: $playHoverHeight
 		width: $playHoverWidth
 
+.button-next
+	$nW: button-sprite-width(next)
+	$nH: button-sprite-height(next)
+	$w: button-sprite-width(next-h)
+	$h: button-sprite-height(next-h)
+	$oH: ($w - $nW) / 2
+	$oV: ($h - $nH) / 2
+	width: $w
+	height: $h
+	position: relative
+	font-size: 0
+	color: transparent
+	margin-top: 1.5rem
+	margin-left: auto
+	margin-right: auto
+	&:before,
+	&:after
+		+pseudo($h, $w)
+		+single-transition(all, 0.3, ease-out)
+	&:before
+		top: $oV
+		left: $oH - 0.5px
+		+button-sprite(next)
+		opacity: 1
+	&:after
+		+button-sprite(next-h)
+		opacity: 0
+	&:hover
+		&:before
+			opacity: 0
+		&:after
+			opacity: 1
+
 .button-timer
 	$cW: button-sprite-width(clock)
 	$cH: button-sprite-height(clock)
