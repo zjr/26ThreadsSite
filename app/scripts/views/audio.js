@@ -30,6 +30,9 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 
 			// Add active class to auto played track.
 			this.$('.key-button[data-id="1"]').addClass('active');
+
+			// Start the height shifting
+			setInterval(_.bind(this.shiftHeight, this), 1500);
 		},
 
 		soundsLoaded: function () {
@@ -79,7 +82,20 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 				}
 			}
 			tries++;
+		},
+
+		shiftHeight: function () {
+			var min = 65;
+			var max = 130;
+			var els = this.$('.key-button');
+
+			_.each(els, function (el) {
+				var height = Math.floor(Math.random() * (max - min + 1)) + min;
+				$(el).height(height);
+			});
+
 		}
+
 	});
 
 	return AudioView;
