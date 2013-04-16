@@ -1,4 +1,4 @@
-define(['backbone', 'models/cDwn', 'text!templates/cDwn.html'], function(Backbone, CDwnModel, cDwnTemplate) {
+define(['backbone', 'models/cDwn', 'text!templates/cDwn.html', 'views/clock'], function(Backbone, CDwnModel, cDwnTemplate, ClockView) {
 	'use strict';
 
 	var CDwnView = Backbone.View.extend({
@@ -9,12 +9,26 @@ define(['backbone', 'models/cDwn', 'text!templates/cDwn.html'], function(Backbon
 				rawDate: this.options.rawDate
 			});
 			this.template = _.template(cDwnTemplate);
-			this.listenTo(this.model, 'change', this.render);
 			this.render();
+
+			setInterval(_.bind(this.clockPulse, this), 1600);
+
+			this.listenTo(this.model, 'change', this.renderTime);
 		},
 
 		render: function () {
 			this.$el.html(this.template(this.model.attributes));
+		},
+
+		clockPulse: function () {
+			this.$('.button-timer').toggleClass('mailOn');
+		},
+
+		renderTime: function () {
+			this.clock = new ClockView({
+				el: this.$('.timer'),
+				model: this.model
+			});
 		}
 
 	});

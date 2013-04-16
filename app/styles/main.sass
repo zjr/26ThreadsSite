@@ -22,6 +22,7 @@
 
 $button-play-spacing: 10px
 $button-t26-spacing: 19px
+$button-next-spacing: 19px
 @import "button/*.png"
 
 @import "light/*.png"
@@ -165,6 +166,59 @@ body
 		padding: 0
 		height: $playHoverHeight
 		width: $playHoverWidth
+
+.button-timer
+	$cW: button-sprite-width(clock)
+	$cH: button-sprite-height(clock)
+	$mW: button-sprite-width(mail)
+	$mH: button-sprite-height(mail)
+	$mHW: button-sprite-width(mail-h)
+	$mHH: button-sprite-height(mail-h)
+	// clock is widest and heighest
+	$w: $cW
+	$h: $cH
+	width: $w
+	height: $h
+	position: relative
+	margin: 1rem auto
+	cursor: pointer
+	.clock
+		+pseudo($h, $w)
+		+button-sprite(clock)
+		+single-transition(all, 0.8s, ease-out, 0.8s)
+		opacity: 1
+	&:before,
+	&:after
+		opacity: 0
+	&:before
+		+pseudo($mH, $mW)
+		+button-sprite(mail)
+		+single-transition(all, 0.8s, ease-out)
+		top: ($h - $mH) / 2
+		left: ($w - $mW) / 2
+	&:after
+		+pseudo($mHH, $mHW)
+		+button-sprite(mail-h)
+		+single-transition(all, 0.3s, ease-out)
+		top: ($h - $mHH) / 2
+		left: ($w - $mHW) / 2
+	&.mailOn 
+		.clock
+			opacity: 0
+			+single-transition(all, 0.8s, ease-out)
+		&:before
+			opacity: 1
+			+single-transition(all, 0.8s, ease-out, 0.8s)
+	&:hover
+		.clock
+			+single-transition(all, 0.8s, ease-out)
+			opacity: 0
+		&:after
+			+single-transition(all, 0.8s, ease-out)
+			opacity: 1
+.timer
+	font-size: 2rem
+	line-height: 1.6em
 
 .info-link
 	position: relative
