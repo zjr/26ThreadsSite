@@ -1,9 +1,10 @@
 define(['backbone', 'text!templates/nodes.html'], function (Backbone, nodesTemp) {
+	'use strict';
 
 	var NodesView = Backbone.View.extend({
 
 		events: {
-			"click .node-link": "goToThread"
+			'click .node-link': 'goToThread'
 		},
 
 		initialize: function () {
@@ -11,7 +12,7 @@ define(['backbone', 'text!templates/nodes.html'], function (Backbone, nodesTemp)
 			this.template = _.template(nodesTemp);
 			_.each(this.collection.models, this.render, this);
 
-			App.router.on("route:showThread", function (id) {
+			App.router.on('route:showThread', function (id) {
 				var aNode = that.$('#node-'+id);
 				that.$('.node-link').not(aNode).removeClass('active');
 				aNode.addClass('active');
@@ -24,9 +25,9 @@ define(['backbone', 'text!templates/nodes.html'], function (Backbone, nodesTemp)
 
 		goToThread: function (event) {
 			event.preventDefault();
-			App.router.navigate(event.target.hash, {trigger: true})
+			App.router.navigate(event.target.hash, {trigger: true});
 		}
 	});
 
-	return NodesView; 
+	return NodesView;
 });
