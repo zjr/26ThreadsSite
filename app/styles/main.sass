@@ -362,11 +362,38 @@ body
 		+box-shadow($blueGlow 0 0 10px 3px)
 		+single-transition(all, 0.3s, ease-out)
 #node-anchor
-	+button-sprite(anchor)
-	width: button-sprite-width(anchor)
-	height: button-sprite-height(anchor)
+	$w: button-sprite-width(anchor-h)
+	$h: button-sprite-height(anchor-h)
+	$nW: button-sprite-width(anchor)
+	$nH: button-sprite-height(anchor)
+	$pH: ($w - $nW) / 2
+	$pV: ($h - $nH) / 2
+	width: $w
+	height: $h
+	right: 0.1rem
 	position: absolute
-	right: 0.5rem
+	&:before
+		+pseudo($w, $h)
+		top: $pV
+		right: -$pH + 0.5px
+		// padding: $pH $pV
+		+button-sprite(anchor)
+		// +background-origin(content-box)
+		+single-transition(all, 0.3s, ease-out)
+		opacity: 1
+	&:after
+		+pseudo($w, $h)
+		+button-sprite(anchor-h)
+		top: 0
+		right: 0
+		opacity: 0
+		+single-transition(all, 0.3s, ease-out)
+	&:hover:before,
+	&.active:before
+		opacity: 0
+	&:hover:after,
+	&.active:after
+		opacity: 1
 .node-link-container:first-child
 	margin-bottom: 1rem
 	margin-top: 0.4rem
