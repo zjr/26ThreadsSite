@@ -35,6 +35,9 @@ define(['backbone', 'views/cDwn', 'text!templates/thread.html'], function (Backb
 			var portion      = 1 / threadCount;
 			var threadInvert = 26 + 1 - id;
 
+			clearTimeout(this.flickerTime);
+			this.flicker();
+
 			this.model.attributes.threadPosition = portion * threadInvert;
 			this.$el.html(this.template(this.model.attributes));
 
@@ -48,6 +51,17 @@ define(['backbone', 'views/cDwn', 'text!templates/thread.html'], function (Backb
 			}
 
 			return this;
+		},
+
+		flicker: function () {
+			if (this.$el.hasClass('on')) {
+				this.$el.removeClass('on');
+				this.flickerTime = setTimeout(_.bind(this.flicker, this), 300);
+			} else {
+				this.flickerTime = setTimeout(_.bind(function () {
+					this.$el.addClass('on');
+				}, this), 300);
+			}
 		},
 
 		update: function (id) {

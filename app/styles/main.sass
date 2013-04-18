@@ -102,6 +102,10 @@ body
 		background-image: inline-image('FOLBG.png')
 
 #thread-container
+	opacity: 0
+	+single-transition(opacity, 0.3s, ease-out)
+#thread-container.on
+	opacity: 1
 	top: 50%
 	left: 50%
 	z-index: 1
