@@ -101,11 +101,7 @@ body
 		display: inline-block
 		background-image: inline-image('FOLBG.png')
 
-#thread-container
-	opacity: 0
-	+single-transition(opacity, 0.3s, ease-out)
-#thread-container.on
-	opacity: 1
+.rotater-container
 	top: 50%
 	left: 50%
 	z-index: 1
@@ -114,11 +110,81 @@ body
 	height: 400px
 	margin-top: -200px
 	margin-left: -200px
+	opacity: 0
+.rotater-container.on
+	+single-transition(opacity, 0.3s, ease-out)
+	opacity: 1
+#thread-container
+	width: 100%
+	height: 100%
 	padding: 40px
 	+box-sizing(border-box)
 	+border-radius(300px)
 	border: 5px solid rgba(white, 0.8)
 	background: rgba(black, 0.8)
+.cssanimations .rotater
+	top: 0
+	left: 0
+	z-index: -1
+	position: absolute
+	width: 100%
+	height: 100%
+	+box-sizing(border-box)
+	opacity: 0.8
+	background: rgba(black, 0.8)
+	border: 5px solid rgba(white, 0.8)
+	-webkit-animation: rotate infinite linear
+	animation: rotate infinite linear
+	&.box0
+		-webkit-animation-duration: 1.5s
+		animation-duration: 1.5s
+	&.box1
+		-webkit-animation-duration: 1.7s
+		animation-duration: 1.7s
+	&.box2
+		-webkit-animation-duration: 1.9s
+		animation-duration: 1.9s
+	&.box3
+		-webkit-animation-duration: 2.3s
+		animation-duration: 2.3s
+	&.box4
+		-webkit-animation-duration: 2.7s
+		animation-duration: 2.7s
+	&.box5
+		-webkit-animation-duration: 3.4s
+		animation-duration: 3.4s
+	&.box6
+		-webkit-animation-duration: 2.8s
+		animation-duration: 2.8s
+	&.box7
+		-webkit-animation-duration: 4.4s
+		animation-duration: 4.4s
+	&.box8
+		-webkit-animation-duration: 5s
+		animation-duration: 5s
+	&.box9
+		-webkit-animation-duration: 6s
+		animation-duration: 6s
+@-webkit-keyframes rotate
+	0%
+		-webkit-transform: rotate(0deg)
+		transform: rotate(0deg)
+	100%
+		-webkit-transform: rotate(90deg)
+		transform: rotate(90deg)
+@keyframes rotate
+	0%
+		-webkit-transform: rotate(0deg)
+		-moz-transform: rotate(0deg)
+		-ms-transform: rotate(0deg)
+		-o-transform: rotate(0deg)
+		transform: rotate(0deg)
+	100%
+		-webkit-transform: rotate(90deg)
+		-moz-transform: rotate(90deg)
+		-ms-transform: rotate(90deg)
+		-o-transform: rotate(90deg)
+		transform: rotate(90deg)
 	
 .thread
 	width: 100%

@@ -54,12 +54,12 @@ define(['backbone', 'views/cDwn', 'text!templates/thread.html'], function (Backb
 		},
 
 		flicker: function () {
-			if (this.$el.hasClass('on')) {
-				this.$el.removeClass('on');
+			if (this.$el.parent().hasClass('on')) {
+				this.$el.parent().removeClass('on');
 				this.flickerTime = setTimeout(_.bind(this.flicker, this), 300);
 			} else {
 				this.flickerTime = setTimeout(_.bind(function () {
-					this.$el.addClass('on');
+					this.$el.parent().addClass('on');
 				}, this), 300);
 			}
 		},
