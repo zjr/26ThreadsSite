@@ -31,9 +31,9 @@ require([
 	function ($, AppView, Router, Threads, ThreadView, NodesView, AudioView, LoaderView) {
 		'use strict';
 
-		loader = new LoaderView({
-			el: $('#loader')
-		});
+		// loader = new LoaderView({
+		// 	el: $('#loader')
+		// });
 
 		Function.prototype.method = function(name, func) {
 			this.prototype[name] = func;
