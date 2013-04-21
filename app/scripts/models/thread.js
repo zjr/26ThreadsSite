@@ -6,10 +6,11 @@ define(['backbone'], function (Backbone) {
 			'title': null,
 			'subTitle': null,
 			'description': null,
+			'exLink': null,
+			'exLinkDesc': null,
 			'video': {
 				'url': null,
 				'vimeoId': null,
-				'locked': false,
 				'release': null
 			}
 		}

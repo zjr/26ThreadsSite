@@ -16,6 +16,7 @@
 				>Next</a>
 		<% } %>
 		<% if (subTitle) { %><h3 class="thread-subtitle"><%= subTitle.toTitle() %></h3><% } %>
+		<% if (exLink) { %><a class="ex-link" href="<%= exLink %>"><%= exLinkDesc %></a><% } %>
 	</div>
 </section>
 <button data-id="<%= id %>" class="info-link">More Info</button>
