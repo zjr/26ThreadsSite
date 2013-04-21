@@ -31,9 +31,9 @@ require([
 	function ($, AppView, Router, Threads, ThreadView, NodesView, AudioView, LoaderView) {
 		'use strict';
 
-		// loader = new LoaderView({
-		// 	el: $('#loader')
-		// });
+		var loader = new LoaderView({
+			el: $('#loader')
+		});
 
 		Function.prototype.method = function(name, func) {
 			this.prototype[name] = func;
@@ -133,6 +133,8 @@ require([
 					App.audioView.loop.start(App.audioView.currentTrack);
 				}
 			};
+
+			loader.close();
 
 			if (Backbone.history.start()) {
 				var linkComponents = window.location.href.split('/');
