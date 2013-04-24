@@ -25,15 +25,10 @@ require([
 		'views/thread',
 		'views/nodes',
 		'views/audio',
-		'views/loader',
 		'progImgSeq'
 	],
-	function ($, AppView, Router, Threads, ThreadView, NodesView, AudioView, LoaderView) {
+	function ($, AppView, Router, Threads, ThreadView, NodesView, AudioView) {
 		'use strict';
-
-		var loader = new LoaderView({
-			el: $('#loader')
-		});
 
 		Function.prototype.method = function(name, func) {
 			this.prototype[name] = func;
@@ -134,8 +129,6 @@ require([
 				}
 			};
 
-			loader.close();
-
 			if (Backbone.history.start()) {
 				var linkComponents = window.location.href.split('/');
 				var pop = linkComponents.pop();
@@ -165,6 +158,15 @@ require([
 					break;
 				}
 			});
+
+			var loaderHide = function () {
+				$('.loader').fadeOut(1000);
+				setTimeout(loaderDelete, 1000);
+			};
+			var loaderDelete = function () {
+				$('.loader').remove();
+			};
+			setTimeout(loaderHide, 1000);
 
 		});
 	});

@@ -20,5 +20,7 @@ include layouts/default
 					style='width: 100%; height: 100%;')
 			#vModal.modal
 			#xModal.modal.moreInfo
-			#loader
-				.loader-overlay
+			.loader
+				.spinner
+					-for (var i = 0; i < 5; i++)
+						.circle
