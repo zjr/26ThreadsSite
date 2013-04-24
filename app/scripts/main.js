@@ -116,12 +116,17 @@ require([
 				collection: App.threadCol
 			});
 
+			// Close the modal! refactor!!! ahhh waste!
 			App.closeModal = function () {
 				App.router.navigate(
 					'thread/'+App.view.currentId,
 					{replace: true}
 				);
-				App.videoView.$('iframe').remove();
+				try {
+					App.videoView.$('iframe').remove();
+				} catch (e) {
+					console.log('Not a video...  ' + e);
+				}
 
 				// Restart the soundtrack
 				if (App.audioView.audioOn) {
