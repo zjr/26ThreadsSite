@@ -379,10 +379,12 @@ body
 .thread.infoOn .willHide
 	+opacity(0)
 	+single-transition(opacity, 0.3s, ease-out)
+	pointer-events: none
 
 .info
 	+single-transition(opacity, 0.3s, ease-out)
 	+opacity(0)
+	pointer-events: none
 	&.active
 		+single-transition(opacity, 0.3s, ease-out, 0.3s)
 		+opacity(1)
