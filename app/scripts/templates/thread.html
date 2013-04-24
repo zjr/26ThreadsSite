@@ -19,7 +19,8 @@
 				>Next</a>
 		<% } %>
 		<% if (subTitle) { %><h3 class="thread-subtitle"><%= subTitle.toTitle() %></h3><% } %>
-		<% if (exLink) { %><a class="ex-link" href="<%= exLink %>"><%= exLinkDesc %></a><% } %>
+		<% if (exLink) { %><a class="ex-link" href="<%= exLink %>" target="_blank"><%= exLinkDesc %></a><% } %>
+		<% if (id === 23) { %><p class="warning">This video meditation is also featured within Thread 26</p><% } %>
 	</div>
 </section>
 <button data-id="<%= id %>" class="info-link">More Info</button>
