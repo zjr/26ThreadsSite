@@ -4,8 +4,9 @@ define(['backbone', 'views/cDwn', 'text!templates/thread.html'], function (Backb
 	var ThreadView = Backbone.View.extend({
 
 		events: {
-			'click .info-link': 'showInfo',
-			'click .button-play': 'showVideo'
+			'click .info-link': 'showInfo'/*,
+			'click .button-play': 'showVideo',
+			'click #hiddenYT': 'showVideo'*/
 		},
 
 		initialize: function() {
@@ -96,9 +97,9 @@ define(['backbone', 'views/cDwn', 'text!templates/thread.html'], function (Backb
 			}
 		},
 
-		showVideo: function () {
-			App.router.navigate('video');
-		}
+		// showVideo: function () {
+		// 	App.router.navigate('video');
+		// }
 
 	});
 
