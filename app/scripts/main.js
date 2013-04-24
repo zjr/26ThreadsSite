@@ -134,6 +134,7 @@ require([
 				}
 			};
 
+			// Start History!!!
 			if (Backbone.history.start()) {
 				var linkComponents = window.location.href.split('/');
 				var pop = linkComponents.pop();
@@ -143,7 +144,9 @@ require([
 				} else if (pop === 'video') {
 					App.threadView.decider(id);
 				}
-            }
+			} else {
+				App.router.navigate('thread/1', {trigger: true});
+			}
 
 			$(document).keydown(function (e) {
 				switch(e.which) {
