@@ -262,7 +262,9 @@ module.exports = function (grunt) {
 					src: [
 						'*.{ico,txt}',
 						'.htaccess',
-						'assets/**'
+						'assets/**',
+						'scripts/audio/**',
+						'php/**'
 					]
 				}]
 			}

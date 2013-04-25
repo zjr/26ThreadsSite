@@ -6,7 +6,8 @@ define(['backbone', 'models/cDwn', 'text!templates/cDwn.html', 'views/clock'], f
 		initialize: function () {
 			this.model = new CDwnModel({
 				id: this.options.id,
-				rawDate: this.options.rawDate
+				rawDate: this.options.rawDate,
+				vimeoId: this.options.vimeoId
 			});
 			this.template = _.template(cDwnTemplate);
 			this.render();

@@ -14,6 +14,7 @@ define(['backbone'], function(Backbone) {
 
 			if (this.remaining <= 0) {
 				this.set({unLocked: true});
+				this.apiUnlock(this.attributes.vimeoId);
 				return;
 			}
 
@@ -37,6 +38,7 @@ define(['backbone'], function(Backbone) {
 						  this.attributes.days === 0 ) {
 						clearInterval(cDown);
 						this.set({unLocked: true});
+						this.apiUnlock(this.attributes.vimeoId);
 						return;
 					}
 
@@ -64,6 +66,21 @@ define(['backbone'], function(Backbone) {
 					this.set({seconds: (this.get('seconds') + 1)});
 				}
 			}, this), 1000);
+		},
+
+		apiUnlock: function (vimeoId) {
+			var that = this;
+			$.post('php/unlock.php', {'id': vimeoId})
+				.done(_.bind(function (data) {
+					console.log('Success!');
+					console.log('this: ' + this);
+					console.log('data: ' + data);
+					App.threadView.timer.render(that.attributes.id);
+				}, this))
+				.fail(_.bind(function (data){
+					console.log('this: ' + this);
+					console.log('data: ' + data);
+				}, this));
 		}
 
 	});

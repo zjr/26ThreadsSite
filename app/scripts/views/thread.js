@@ -47,7 +47,8 @@ define(['backbone', 'views/cDwn', 'text!templates/thread.html'], function (Backb
 				this.timer = new CDwnView({
 					id: id,
 					el: this.$('#timer'),
-					rawDate: release
+					rawDate: release,
+					vimeoId: this.model.attributes.video.vimeoId
 				});
 			}
 
