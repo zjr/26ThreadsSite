@@ -129,9 +129,9 @@ require([
 				}
 
 				// Restart the soundtrack
-				if (App.audioView.audioOn) {
-					App.audioView.loop.start(App.audioView.currentTrack);
-				}
+				// if (App.audioView.audioOn) {
+				// 	App.audioView.loop.start(App.audioView.currentTrack);
+				// }
 			};
 
 			// Start History!!!
