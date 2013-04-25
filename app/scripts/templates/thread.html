@@ -9,7 +9,7 @@
 	<div class="willHide">
 		<h2 class="thread-title"><%= title.toTitle() %></h2>
 		<% // thread type switches %>
-		<% if (video.url || id === 26) { %>
+		<% if (video.url) { %>
 			<div id="timer"></div>
 		<% } else { %>
 			<% // regular type %>
@@ -27,3 +27,6 @@
 <section class="info">
 	<p class="thread-desc"><%= description %></p>
 </section>
+<% if (video.url) { %>
+<span class="tBg tBg<%= id %>"></span>
+<% } %>

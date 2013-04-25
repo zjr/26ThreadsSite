@@ -1,0 +1,45 @@
+.backgroundsize.borderradius.cssgradients
+	.tBg1
+		background: url(/assets/images/tBg/01.jpg) no-repeat
+	.tBg3
+		background: url(/assets/images/tBg/03_2.jpg) no-repeat
+	.tBg6
+		background: url(/assets/images/tBg/06.jpg) no-repeat
+	.tBg9
+		background: url(/assets/images/tBg/09.jpg) no-repeat
+	.tBg11	
+		background: url(/assets/images/tBg/11.jpg) no-repeat
+	.tBg13
+		background: url(/assets/images/tBg/13.jpg) no-repeat
+	.tBg14
+		background: url(/assets/images/tBg/14.jpg) no-repeat
+	.tBg18
+		background: url(/assets/images/tBg/18.jpg) no-repeat
+	.tBg20
+		background: url(/assets/images/tBg/20_2.jpg) no-repeat
+	.tBg22
+		background: url(/assets/images/tBg/22.jpg) no-repeat
+	.tBg23
+		background: url(/assets/images/tBg/23.jpg) no-repeat
+	.tBg25
+		background: url(/assets/images/tBg/25.jpg) no-repeat
+	.tBg26
+		background: url(/assets/images/tBg/26.jpg) no-repeat
+	.tBg
+		top: 0
+		left: 0
+		z-index: -1
+		position: absolute
+		width: 100%
+		height: 100%
+		+border-radius(100%)
+		background-size: cover
+		background-position: center
+		opacity: 0
+		+single-transition(opacity, 1s, ease-in-out)
+		&:after
+			+pseudo(100%, 100%)
+			+border-radius(100%)
+			+background(radial-gradient(rgba(black, 0), rgba(black, 1) 75%))
+#thread-container:hover > .tBg
+	opacity: 1
