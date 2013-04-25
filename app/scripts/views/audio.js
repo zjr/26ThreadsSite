@@ -1,5 +1,5 @@
-/* globals SeamlessLoop:false */
-define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'text!audio/PhysicURI', 'text!templates/audio.html', 'audio/seamless'], function (Backbone, Bangalore, Hypercarnal, Physic, audioTemplate) {
+/* globals SeamlessLoop:false, Modernizr:false */
+define(['backbone','text!templates/audio.html', 'audio/seamless'], function (Backbone, audioTemplate) {
 	'use strict';
 
 	var AudioView = Backbone.View.extend({
@@ -9,38 +9,46 @@ define(['backbone', 'text!audio/BangaloreURI', 'text!audio/HypercarnalURI', 'tex
 		},
 
 		initialize: function () {
-			this.loaded = false;
+			_.bindAll(this);
+			var a1 = Modernizr.audio.mp3 ? 'text!audio/BangaloreUriMp3' :
+                                     'text!audio/BangaloreUriOgg' ;
+			var a2 = Modernizr.audio.mp3 ? 'text!audio/HypercarnalUriMp3' :
+			                               'text!audio/HypercarnalUriOgg' ;
+			var a3 = Modernizr.audio.mp3 ? 'text!audio/PhysicUriMp3' :
+			                               'text!audio/PhysicUriOgg' ;
+			require([a1, a2, a3], _.bind(function(A1, A2, A3) {
+				this.uri = [A1, A2, A3];
+				this.loaded = false;
 
-			// Whole lot of stuff that should be split into collections and models.
-			this.uri = [Bangalore, Hypercarnal, Physic];
-			this.sec = 10 * 1000;
-			this.loop = new SeamlessLoop();
-			this.loop.addUri(this.uri[0], this.sec, 1);
-			this.loop.addUri(this.uri[1], this.sec, 2);
-			this.loop.addUri(this.uri[2], this.sec, 3);
-			this.loop.callback(this.soundsLoaded);
+				this.sec = 10 * 1000;
+				this.loop = new SeamlessLoop();
+				this.loop.addUri(this.uri[0], this.sec, 1);
+				this.loop.addUri(this.uri[1], this.sec, 2);
+				this.loop.addUri(this.uri[2], this.sec, 3);
+				this.loop.callback(this.soundsLoaded);
 
-			this.template = _.template(audioTemplate);
-			this.tracks = [
-				{id: 1, title: 'Bangalore Rose'},
-				{id: 2, title: 'Hypercarnal Ascension'},
-				{id: 3, title: 'Physic'}
-			];
-			_.each(this.tracks, this.render, this);
+				this.template = _.template(audioTemplate);
+				this.tracks = [
+					{id: 1, title: 'Bangalore Rose'},
+					{id: 2, title: 'Hypercarnal Ascension'},
+					{id: 3, title: 'Physic'}
+				];
+				_.each(this.tracks, this.render, this);
 
-			// Add active class to auto played track.
-			this.$('.key-button[data-id="1"]').addClass('active');
+				// Add active class to auto played track.
+				this.$('.key-button[data-id="1"]').addClass('active');
 
-			// Start the height shifting
-			setInterval(_.bind(this.shiftHeight, this), 1500);
+				// Start the height shifting
+				setInterval(_.bind(this.shiftHeight, this), 1500);
+			}, this));
 		},
 
 		soundsLoaded: function () {
 			// Sad messed up context :-(
 			App.audioView.loaded = true;
-			//App.audioView.loop.start(1);
-			//App.audioView.currentTrack = 1;
-			//App.audioView.audioOn = true;
+			App.audioView.loop.start(1);
+			App.audioView.currentTrack = 1;
+			App.audioView.audioOn = true;
 		},
 
 		render: function (element) {
