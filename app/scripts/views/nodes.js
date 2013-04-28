@@ -1,4 +1,4 @@
-define(['raphael', 'backbone', 'text!templates/nodes.html'], function (Raphael, Backbone, nodesTemp) {
+define([/*'raphael', */'backbone', 'text!templates/nodes.html'], function (/*Raphael, */Backbone, nodesTemp) {
 	'use strict';
 
 	var NodesView = Backbone.View.extend({
@@ -17,6 +17,23 @@ define(['raphael', 'backbone', 'text!templates/nodes.html'], function (Raphael, 
 				that.$('.node-link').not(aNode).removeClass('active');
 				aNode.addClass('active');
 			});
+
+			this.boxes = [];
+			this.connections = [];
+
+			for (var i = 0; i < 26; i++) {
+				this.boxes.push({
+					x: 100,
+					y: ((600 / 26) * (i + 1)),
+					title: i.toString()
+				});
+				if (i < 25) {
+					this.connections.push({
+						from: this.boxes[i],
+						to: this.boxes[i+1]
+					});
+				}
+			}
 		},
 
 		render: function (model) {

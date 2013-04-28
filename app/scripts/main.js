@@ -7,7 +7,7 @@ require.config({
 		underscore: '../components/underscore-amd/underscore',
 		json2:      '../components/json2/json2',
 		modal:      '../components/jquery-modal/jquery.modal',
-		raphael:    '../components/raphael/raphael.js',
+		raphael:    '../components/raphael/raphael',
 		progImgSeq: 'vendor/progressiveImageSequence'
 	},
 	shim: {
