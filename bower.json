@@ -2,18 +2,17 @@
 	"name": "26threads",
 	"version": "0.1.0",
 	"dependencies": {
-		"threejs":        null,
-		"modernizr":      null,
-		"prefix-free":    null,
-		"normalize.scss": null,
-		"json2":          null,
+		"modernizr":      "*",
+		"prefix-free":    "*",
+		"normalize.scss": "*",
+		"json2":          "*",
 		"jquery":         "~1.9.x",
 		"requirejs":      "~2.1.x",
 		"requirejs-text": "~2.0.x",
 		"backbone-amd":   "~0.9.x",
 		"underscore-amd": "~1.4.x",
 		"handlebars.js":  "~1.0.x",
-		"jquery-modal":   null
+		"jquery-modal":   "*"
 	},
 	"devDependencies": {}
 }
