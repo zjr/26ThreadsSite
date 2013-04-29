@@ -113,10 +113,10 @@ body
 	height: 400px
 	margin-top: -200px
 	margin-left: -200px
-	opacity: 0
+	+opacity(0)
 .rotater-container.on
 	+single-transition(opacity, 0.3s, ease-out)
-	opacity: 1
+	+opacity(1)
 #thread-container
 	width: 100%
 	height: 100%
@@ -132,7 +132,7 @@ body
 	width: 100%
 	height: 100%
 	+box-sizing(border-box)
-	opacity: 0.8
+	+opacity(0.8)
 	background: rgba(black, 0.8)
 	border: 5px solid rgba(white, 0.8)
 	-webkit-animation: rotate infinite linear
@@ -275,15 +275,15 @@ body
 		top: $oV
 		left: $oH - 0.5px
 		+button-sprite(next)
-		opacity: 1
+		+opacity(1)
 	&:after
 		+button-sprite(next-h)
-		opacity: 0
+		+opacity(0)
 	&:hover
 		&:before
-			opacity: 0
+			+opacity(0)
 		&:after
-			opacity: 1
+			+opacity(1)
 
 .button-timer
 	$cW: button-sprite-width(clock)
@@ -304,10 +304,10 @@ body
 		+pseudo($h, $w)
 		+button-sprite(clock)
 		+single-transition(all, 0.8s, ease-out, 0.8s)
-		opacity: 1
+		+opacity(1)
 	&:before,
 	&:after
-		opacity: 0
+		+opacity(0)
 	&:before
 		+pseudo($mH, $mW)
 		+button-sprite(mail)
@@ -322,18 +322,18 @@ body
 		left: ($w - $mHW) / 2
 	&.mailOn 
 		.clock
-			opacity: 0
+			+opacity(0)
 			+single-transition(all, 0.8s, ease-out)
 		&:before
-			opacity: 1
+			+opacity(1)
 			+single-transition(all, 0.8s, ease-out, 0.8s)
 	&:hover
 		.clock
 			+single-transition(all, 0.8s, ease-out)
-			opacity: 0
+			+opacity(0)
 		&:after
 			+single-transition(all, 0.8s, ease-out)
-			opacity: 1
+			+opacity(1)
 .timer
 	font-size: 2rem
 	line-height: 1.6em
@@ -469,20 +469,20 @@ body
 		+button-sprite(anchor)
 		// +background-origin(content-box)
 		+single-transition(all, 0.3s, ease-out)
-		opacity: 1
+		+opacity(1)
 	&:after
 		+pseudo($w, $h)
 		+button-sprite(anchor-h)
 		top: 0
 		right: 0
-		opacity: 0
+		+opacity(0)
 		+single-transition(all, 0.3s, ease-out)
 	&:hover:before,
 	&.active:before
-		opacity: 0
+		+opacity(0)
 	&:hover:after,
 	&.active:after
-		opacity: 1
+		+opacity(1)
 .node-link-container:first-child
 	margin-bottom: 1rem
 	margin-top: 0.4rem
@@ -504,20 +504,20 @@ body
 		+box-sizing(border-box)
 		+button-sprite(t26)
 		+single-transition(all, 0.3s, ease-out)
-		opacity: 1
+		+opacity(1)
 	&:hover:before,
 	&.active:before
-		opacity: 0
+		+opacity(0)
 	&:after
 		top: -0.4375rem
 		right: -0.55rem
 		+pseudo($width, $height)
 		+button-sprite(t26Glow)
-		opacity: 0
+		+opacity(0)
 		box-shadow: none
 	&:hover:after,
 	&.active:after
-		opacity: 1
+		+opacity(1)
 		box-shadow: none
 
 .keys
@@ -722,11 +722,11 @@ body
 			+single-transition(opacity, 0.3s, ease-out)
 			cursor: pointer
 		&:before
-			opacity: 1
+			+opacity(1)
 		&:after
-			opacity: 0
+			+opacity(0)
 		&:hover:after
-			opacity: 1
+			+opacity(1)
 		&.tw:before
 			+social-sprite(tw)
 		&.tw:after
