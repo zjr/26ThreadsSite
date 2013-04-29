@@ -360,6 +360,7 @@ body
 		line-height: 1.0625rem
 		text-align: center
 		top: 0
+		left: 0
 	&:before
 		font-family: "Times New Roman", serif
 		font-style: italic
@@ -395,7 +396,7 @@ body
 	width: 100%
 	padding: 0 20px
 	text-align: center
-	box-sizing: border-box
+	+box-sizing(border-box)
 	+single-text-shadow
 
 .node-container
@@ -417,12 +418,12 @@ body
 	margin-bottom: -2px
 .node-link
 	height: 1.4em
-	// I should set hard values for height and padding with jQuery
 	padding-right: 4em
 	display: block
 	position: relative
 	+unstyled-link
 	color: transparent
+	cursor: pointer
 	+single-transition(all, 0.7s, ease-out)
 	// this :after are the @dots
 	&:after

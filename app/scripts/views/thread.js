@@ -74,7 +74,7 @@ define(['backbone', 'views/cDwn', 'text!templates/thread.html'], function (Backb
 
 		scrollThere: function () {
 			var position = this.$('.thread').attr('data-position');
-			var offset   = (document.height * position);
+			var offset   = ($(document).height() * position);
 			window.scrollTo(0, offset);
 			return this;
 		},
