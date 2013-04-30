@@ -93,15 +93,16 @@ define(['backbone','text!templates/audio.html', 'audio/seamless'], function (Bac
 		},
 
 		shiftHeight: function () {
-			var min = 65;
-			var max = 130;
-			var els = this.$('.key-button');
+			if (Modernizr.csstransitions) {
+				var min = 65;
+				var max = 130;
+				var els = this.$('.key-button');
 
-			_.each(els, function (el) {
-				var height = Math.floor(Math.random() * (max - min + 1)) + min;
-				$(el).height(height);
-			});
-
+				_.each(els, function (el) {
+					var height = Math.floor(Math.random() * (max - min + 1)) + min;
+					$(el).height(height);
+				});
+			}
 		}
 
 	});
