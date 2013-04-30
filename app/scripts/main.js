@@ -154,6 +154,9 @@ require([
 					App.threadView.showInfo(id);
 				} else if (pop === 'video') {
 					App.threadView.decider(id);
+				} else if (pop === '#more-info') {
+					// App.view.currentId = 1;
+					App.router.trigger('route:showThread', 1);
 				}
 			} else {
 				App.router.navigate('thread/1', {trigger: true});
