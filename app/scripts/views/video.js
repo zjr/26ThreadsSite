@@ -23,6 +23,8 @@ define(['backbone', 'text!templates/video.html', 'modal'], function (Backbone, v
 				zIndex: 2, */
 				closeText: 'x'
 			});
+
+			App.bindClose();
 		},
 
 		resizeModal: function () {

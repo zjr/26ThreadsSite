@@ -129,11 +129,20 @@ require([
 				} catch (e) {
 					console.log('Not a video...  ' + e);
 				}
-
 				// Restart the soundtrack
 				// if (App.audioView.audioOn) {
 				// 	App.audioView.loop.start(App.audioView.currentTrack);
 				// }
+			};
+
+			App.bindClose = function () {
+				$('.blocker').click(function () {
+					App.closeModal();
+				});
+
+				$('.close-modal').click(function () {
+					App.closeModal();
+				});
 			};
 
 			// Start History!!!

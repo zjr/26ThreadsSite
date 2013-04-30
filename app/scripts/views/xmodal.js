@@ -15,6 +15,7 @@ define(['backbone', 'text!templates/xmodal.html', 'modal'], function (Backbone, 
 				zIndex: 2,
 				closeText: 'x'
 			});
+			App.bindClose();
 		}
 
 	});
