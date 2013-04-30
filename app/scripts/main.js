@@ -27,10 +27,9 @@ require([
 		'views/thread',
 		'views/nodes',
 		'views/audio',
-		'views/logoGlitch',
 		'progImgSeq'
 	],
-	function ($, AppView, Router, Threads, ThreadView, NodesView, AudioView, LogoGlitch) {
+	function ($, AppView, Router, Threads, ThreadView, NodesView, AudioView) {
 		'use strict';
 
 		Function.prototype.method = function(name, func) {
@@ -169,13 +168,6 @@ require([
 					break;
 				}
 			});
-
-			// if (Modernizr.canvas) {
-			// 	var elm = '<canvas id="logoGlitch"></canvas>';
-			// 	App.logoGlitch = new LogoGlitch({
-			// 		el: $(elm).replaceAll('#logo')
-			// 	});
-			// }
 
 			var loaderHide = function () {
 				$('.loader').fadeOut(1000);
