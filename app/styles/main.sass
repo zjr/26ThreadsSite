@@ -539,7 +539,6 @@ body
 	padding: 0 0.5rem
 	margin: 0.75rem 0 0 0
 	+box-sizing(border-box)
-	+clearfix
 	list-style: none
 .key
 	float: left
@@ -571,6 +570,9 @@ body
 	$activeWidth: light-sprite-width(active)
 	$activeHeight: light-sprite-height(active)
 
+	-webkit-transform: translate3d(0,0,0)
+	-webkit-backface-visibility: hidden
+	-webkit-perspective: 1000	
 	+single-transition(height, 2.5s)
 
 	&:before,
