@@ -8,6 +8,7 @@ require.config({
 		json2:      '../components/json2/json2',
 		modal:      '../components/jquery-modal/jquery.modal',
 		raphael:    '../components/raphael/raphael',
+		text:       '../components/requirejs-text/text',
 		progImgSeq: 'vendor/progressiveImageSequence'
 	},
 	shim: {
