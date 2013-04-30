@@ -6,7 +6,7 @@
 	"description": "Spatial associations, object relationships, social meanings of shapes and objects.",
 	"video": {
 		"url": "http://player.vimeo.com/video/53644108",
-		"vimeoid": 53644108,
+		"vimeoId": 53644108,
 		"release": "May 6 2012 00:00:00 GMT-0400"
 	}
 },
@@ -22,7 +22,7 @@
 	"description": "Either by means of intercourse, personal socializing, playing with pets, performing favors, and various other self serving protective devices.",
 	"video": {
 		"url": "http://player.vimeo.com/video/53644111",
-		"vimeoid": 53644111,
+		"vimeoId": 53644111,
 		"release": "May 8 2013 00:00:00 GMT-0400"
 	}
 },
@@ -43,7 +43,7 @@
 	"description": "Environmental design, exterior temperature regulation, balance of rest and activity, sense of sleepiness and alertness.",
 	"video": {
 		"url": "http://player.vimeo.com/video/53644112",
-		"vimeoid": 53644112,
+		"vimeoId": 53644112,
 		"release": "May 11 2013 00:00:00 GMT-0400"
 	}
 },
@@ -208,7 +208,7 @@
 	"exLinkDesc": "Continue Here",
 	"video": {
 		"url": "http://player.vimeo.com/video/64507863",
-		"videoId": 64507863,
+		"vimeoId": 64507863,
 		"release": "May 6 2012 00:00:00 GMT-0400"
 	}
 }
