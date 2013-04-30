@@ -87,6 +87,8 @@ body
 		+single-text-shadow
 		line-height: 1.2em
 		margin: 0 0 -0.2em 0
+.lt-ie10 .header
+	width: 12.7em
 
 #video-container
 	top: 0
@@ -206,6 +208,8 @@ body
 .thread-title
 	font-size: 1.3em
 	line-height: 1.6em
+.lt-ie10 .thread-title
+	font-size: 1.2em
 .thread-subtitle
 	line-height: 2em
 .ex-link
@@ -376,6 +380,10 @@ body
 		+opacity(0)
 	&.active:after
 		+opacity(1)
+.lt-ie10 .info-link
+	&:before,
+	&:after
+		top: 8px
 
 .willHide
 	+opacity(1)
@@ -392,6 +400,8 @@ body
 	&.active
 		+single-transition(opacity, 0.3s, ease-out, 0.3s)
 		+opacity(1)
+		.thread-desc
+			+opacity(1)
 .thread-desc
 	top: 35%
 	left: 0
@@ -401,6 +411,7 @@ body
 	text-align: center
 	+box-sizing(border-box)
 	+single-text-shadow
+	+opacity(0)
 
 .node-container
 	top: 0
