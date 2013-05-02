@@ -1,12 +1,10 @@
-define(['backbone', 'views/cDwn', 'text!templates/thread.html'], function (Backbone, CDwnView, threadTemplate) {
+define(['backbone', 'views/cDwn', 'text!templates/thread.html', 'scrollto'], function (Backbone, CDwnView, threadTemplate) {
 	'use strict';
 
 	var ThreadView = Backbone.View.extend({
 
 		events: {
-			'click .info-link': 'showInfo'/*,
-			'click .button-play': 'showVideo',
-			'click #hiddenYT': 'showVideo'*/
+			'click .info-link': 'showInfo'
 		},
 
 		initialize: function() {
@@ -16,6 +14,7 @@ define(['backbone', 'views/cDwn', 'text!templates/thread.html'], function (Backb
 
 			// Scroll when initialiazed
 			App.threadScroller = true;
+			App.hScroll = true;
 
 			App.router.on('route:showThread', function (id) {
 				that.decider(id);
@@ -73,9 +72,12 @@ define(['backbone', 'views/cDwn', 'text!templates/thread.html'], function (Backb
 		},
 
 		scrollThere: function () {
+			App.hScroll = false;
 			var position = this.$('.thread').attr('data-position');
 			var offset   = ($(document).height() * position);
-			window.scrollTo(0, offset);
+			$('body').scrollTo(offset, {duration: 500}, setTimeout(function () {
+				App.hScroll = true;
+			}, 800));
 			return this;
 		},
 

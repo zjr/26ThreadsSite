@@ -70,7 +70,7 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 			var position = ((this.targetPosition) * 26).toInt();
 			var nPosition = position === 0 ? 1 : position;
 			var id = 27 - nPosition;
-			if (id !== this.currentId) {
+			if (id !== this.currentId && App.hScroll) {
 				App.threadScroller = false;
 				App.router.navigate('#thread/' + id, {trigger: true});
 			}
