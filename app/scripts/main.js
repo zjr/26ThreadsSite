@@ -118,6 +118,20 @@ require([
 				collection: App.threadCol
 			});
 
+			// if (Modernizr.canvas) {
+			// 	require(['views/rnodes'], function (RNodesView) {
+			// 		App.nodeView = new RNodesView({
+			// 			el: $('<div id="paper"></div>').replaceAll('#node-list'),
+			// 			collection: App.threadCol
+			// 		});
+			// 	});
+			// } else {
+			// 	App.nodeView = new NodesView({
+			// 		el: $('#node-list'),
+			// 		collection: App.threadCol
+			// 	});
+			// }
+
 			App.nodeView = new NodesView({
 				el: $('#node-list'),
 				collection: App.threadCol
