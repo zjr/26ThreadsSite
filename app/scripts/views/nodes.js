@@ -1,4 +1,4 @@
-define([/*'raphael', */'backbone', 'text!templates/nodes.html'], function (/*Raphael, */Backbone, nodesTemp) {
+define(['backbone', 'text!templates/nodes.html'], function (Backbone, nodesTemp) {
 	'use strict';
 
 	var NodesView = Backbone.View.extend({
