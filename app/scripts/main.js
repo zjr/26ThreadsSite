@@ -1,15 +1,20 @@
 /* globals ProgressiveImageSequence:false, Modernizr:false */
 require.config({
 	paths: {
-		bootstrap:  'vendor/bootstrap',
-		jquery:     '../components/jquery/jquery',
-		backbone:   '../components/backbone-amd/backbone',
-		underscore: '../components/underscore-amd/underscore',
-		json2:      '../components/json2/json2',
-		modal:      '../components/jquery-modal/jquery.modal',
-		raphael:    '../components/raphael/raphael',
-		text:       '../components/requirejs-text/text',
-		progImgSeq: 'vendor/progressiveImageSequence'
+		bootstrap:      'vendor/bootstrap',
+		jquery:         '../components/jquery/jquery',
+		backbone:       '../components/backbone-amd/backbone',
+		underscore:     '../components/underscore-amd/underscore',
+		json2:          '../components/json2/json2',
+		modal:          '../components/jquery-modal/jquery.modal',
+		eve:            '../components/raphael-amd/eve.0.3.4',
+		'raphael.core': '../components/raphael-amd/raphael.2.1.0.core',
+		'raphael.svg':  '../components/raphael-amd/raphael.2.1.0.svg',
+		'raphael.vml':  '../components/raphael-amd/raphael.2.1.0.vml',
+		raphael:        '../components/raphael-amd/raphael.2.1.0.amd',
+		scrollto:       '../components/jquery.scrollTo/jquery.scrollTo',
+		text:           '../components/requirejs-text/text',
+		progImgSeq:     'vendor/progressiveImageSequence'
 	},
 	shim: {
 		bootstrap: {
