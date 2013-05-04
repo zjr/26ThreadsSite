@@ -64,8 +64,21 @@ require([
 
 			App.view = new AppView({ el: $('#video-container') });
 
-			// All this needs refactoring... jeez.
-			App.view.imgSeqLoader = new ProgressiveImageSequence('/assets/images/video-bg/vid-{index}.jpg', 360, {
+			var size;
+			var w = $(window).width();
+			var h = $(window).height();
+
+			if (w > 1366 && w < 1600) {
+				size = '1440';
+			} else if (w > 1600 && h < 1100) {
+				size = '1920';
+			} else if (w > 1600 && h > 1100) {
+				size = '1920/1200';
+			} else {
+				size = '1024';
+			}
+
+			App.view.imgSeqLoader = new ProgressiveImageSequence('/assets/images/video-bg/' + size + '/vid-{index}.jpg', 360, {
 				indexSize: 4,
 				initialStep: 16,
 				onProgress: this.handleLoadProgress,
@@ -85,7 +98,6 @@ require([
 				}
 			});
 
-			// Definitely refactor!
 			window.reqAnimFrame = (function () {
 				return window.requstAnimationFrame       ||
 							 window.webkitRequstAnimationFrame ||
