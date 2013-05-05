@@ -25,7 +25,7 @@ define(['backbone','text!templates/audio.html', 'audio/seamless'], function (Bac
 				this.loop.addUri(this.uri[0], this.sec, 1);
 				this.loop.addUri(this.uri[1], this.sec, 2);
 				this.loop.addUri(this.uri[2], this.sec, 3);
-				this.loop.callback(this.soundsLoaded);
+				this.loop.callback(_.bind(this.soundsLoaded, this));
 
 				this.template = _.template(audioTemplate);
 				this.tracks = [
@@ -44,11 +44,10 @@ define(['backbone','text!templates/audio.html', 'audio/seamless'], function (Bac
 		},
 
 		soundsLoaded: function () {
-			// Sad messed up context :-(
-			App.audioView.loaded = true;
-			App.audioView.loop.start(1);
-			App.audioView.currentTrack = 1;
-			App.audioView.audioOn = true;
+			this.loaded = true;
+			this.loop.start(1);
+			this.currentTrack = 1;
+			this.audioOn = true;
 		},
 
 		render: function (element) {
