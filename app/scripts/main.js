@@ -144,7 +144,6 @@ require([
 				collection: App.threadCol
 			});
 
-			// Close the modal! refactor!!! ahhh waste!
 			App.closeModal = function () {
 				App.router.navigate(
 					'thread/'+App.view.currentId,
@@ -155,17 +154,12 @@ require([
 				} catch (e) {
 					console.log('Not a video...  ' + e);
 				}
-				// Restart the soundtrack
-				// if (App.audioView.audioOn) {
-				// 	App.audioView.loop.start(App.audioView.currentTrack);
-				// }
 			};
 
 			App.bindClose = function () {
 				$('.blocker').click(function () {
 					App.closeModal();
 				});
-
 				$('.close-modal').click(function () {
 					App.closeModal();
 				});
@@ -200,8 +194,6 @@ require([
 				case 40:
 					if (App.view.currentId !== 1) {
 						App.router.navigate('#thread/'+(App.view.currentId - 1), {trigger: true});
-					} else {
-						// Glow!!!
 					}
 					break;
 				}

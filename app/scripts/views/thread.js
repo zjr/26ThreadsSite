@@ -100,10 +100,6 @@ define(['backbone', 'views/cDwn', 'text!templates/thread.html', 'scrollto'], fun
 			}
 		},
 
-		// showVideo: function () {
-		// 	App.router.navigate('video');
-		// }
-
 	});
 
 	return ThreadView;

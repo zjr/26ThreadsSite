@@ -13,14 +13,7 @@ define(['backbone', 'text!templates/video.html', 'modal'], function (Backbone, v
 
 			this.$el.html(this.template(this.model.attributes));
 
-			// Stop the Soundtrack
-			// (Try keeping audio going during video)
-			// (remember to take out the function in that case)
-			// App.audioView.specialStop();
-
 			this.$el.modal({
-				/* index to normal to keep keys on top
-				zIndex: 2, */
 				closeText: 'x'
 			});
 

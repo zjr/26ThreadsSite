@@ -8,7 +8,6 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 			this.$win  = $(window);
 			this.video = this.$el.children()[0];
 
-			//
 			this.currentSrc = null;
 			this.currentIndex = null;
 
@@ -75,48 +74,13 @@ define(['backbone', 'progImgSeq'], function (Backbone) {
 				App.router.navigate('#thread/' + id, {trigger: true});
 			}
 		},
-		// consider moving this to ThreadView
 		render: function (position) {
-			var _el = $('.thread');
-			var minY = -this.winHeight;
-			var maxY = this.winHeight;
-			var scrollHeight  = this.scrollHeight;
-
-			// index, element never used
-			// $.each(_el, function (index, element) {
-			$.each(_el, function () {
-				var $this = $(this);
-				var elPosition = Number($this.attr('data-position'));
-				var elSpeed    = Number($this.attr('data-speed'));
-				var elY = maxY/2 + elSpeed * (elPosition - position) * scrollHeight;
-
-				if (elY < minY || elY > maxY) {
-					$this.css({
-						'visibility': 'none',
-						// top: '-1000px',
-						// 'webkitTransform':, 'none'
-					});
-				} else {
-					$this.css({
-						'visibility': 'visible',
-						// should simplify... this is unnecessary
-						// should just have container element absolutely positioned to viewport.
-						// top: elY,
-						// position: 'fixed'
-					});
-				}
-			});
-
 			this.renderVideo(position);
 		},
-		// Position is never used
-		//renderVideo: function (position) {
 		renderVideo: function () {
 			var index = Math.round(this.currentPosition * (this.imgSeqLoader.length - 1));
 
 			var img = this.imgSeqLoader.getNearest(index);
-			// Never used
-			//var $img = $(img);
 			var src;
 
 			var nearestIndex = this.imgSeqLoader.nearestIndex;
