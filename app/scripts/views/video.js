@@ -28,8 +28,7 @@ define(['backbone', 'text!templates/video.html', 'modal'], function (Backbone, v
 		},
 
 		resizeModal: function () {
-			var dWidth = $(document).width();
-			var mWidth = dWidth / 2;
+			var mWidth = App.view.winWidth / 2;
 			var aspect = 0.5625;
 
 			this.$el.width(mWidth).height(mWidth * aspect);

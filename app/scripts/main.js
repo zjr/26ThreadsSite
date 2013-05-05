@@ -60,8 +60,8 @@ require([
 			App.view = new AppView({ el: $('#video-container') });
 
 			var size;
-			var w = $(window).width();
-			var h = $(window).height();
+			var w = App.view.winWidth;
+			var h = App.view.winHeight;
 
 			if (w > 1366 && w < 1600) {
 				size = '1440';
