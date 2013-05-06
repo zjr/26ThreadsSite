@@ -1,4 +1,22 @@
-<%= days %> :
-<%= 24 - hours %> :
-<%= 60 - minutes %> :
-<%= 60 - seconds %>
+<p>This thread will be released in:</p>
+<div class="time">
+	<span>
+		<div><%= days %></div>
+		<div>D</div>
+	</span>
+	<span> : </span>
+	<span>
+		<div><%= 24 - hours %></div>
+		<div>H</div>
+	</span>
+	<span> : </span>
+	<span>
+		<div><%= 60 - minutes %></div>
+		<div>M</div>
+	</span>
+	<span> : </span>
+	<span>
+		<div><%= 60 - seconds %></div>
+		<div>S</div>
+	</span>
+</div>
